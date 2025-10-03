@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RHK Advisors</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+
+	<a href="index.html" class="site-header">
+  <h1>RHK Advisors</h1>
+  </a>
+  <button id="menu-toggle" aria-label="Toggle menu">
+    <span class="bar">Services</span>
+    <span class="bar">Members</span>
+    <span class="bar">About Me</span>
+  </button>
+  <nav id="nav-menu">
+    <ul>
+		<li>
+      <a href="services.html">Services</a>
+      <ul class="submenu">
+		<li><a href="services.html">Tax Planning & Compliance</a></li>
+		<li><a href="service2.html">Internal Audit, Risk & Compliance</a></li>
+		<li><a href="service3.html">Management & Technology Consulting</a></li>
+		<li><a href="service4.html">Transaction Services</a></li>
+		<li><a href="service5.html">Turnaround & Restructuring</a></li>
+		<li><a href="service6.html">State & Local Incentives & Credits Negotiation</a></li>
+		<li><a href="service7.html">Other Advisory Services</a></li>
+	  </ul>
+	  </li>
+	  <li>
+      <a href="members.html">Members</a>
+	  </li>
+	  <li>
+      <a href="#newsletter">Newsletter</a>
+      <ul class="submenu">
+		<li><a href="#curIssue">Latest Issue</a></li>
+		<li><a href="#passIssue">Past Issues</a></li>
+	  </ul>
+	  </li>
+    
+	<li class="language-toggle">
+	   <span class="globe-icon">🌐</span>
+	   <ul class="submenu">
+    <li><button data-lang="en" class="active">EN</button></li>
+    <li><button data-lang="ko">KR</button></li>
+	</ul>
+</li>
+</ul>
+  </nav>
+  
+  
+  </header>
+
+<nav class="breadcrumb-nav">
+	<ul class="breadcrumb">
+	    <li>
+      <a href="index.html" class="home-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#003366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7"></path>
+          <path d="M9 22V12h6v10"></path>
+        </svg>
+      </a>
+    </li>
+
+    <li class="separator">|</li>
+
+	
+  <li class="has-dropdown">
+  <a href="services.html">Services <span class="arrow">
+  <svg width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1 1l4 4 4-4" stroke="#555" stroke-width="1.5" fill="none" />
+  </svg>
+</span></a>
+  <ul class="dropdown">
+	<li><a href="services.html">Services</a></li>
+	<li><a href="members.html">Members</a></li>
+	<li><a href="newsletter.html">Newsletter</a></li>
+	<li><a href="about.html">About RHK Advisors</a></li>
+</ul></li>
+  <li class="has-dropdown">
+  <a href="service1.html">Tax Planning & Compliance <span class="arrow">
+  <svg width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1 1l4 4 4-4" stroke="#555" stroke-width="1.5" fill="none" />
+  </svg>
+</span>
+</a>
+  <ul class="dropdown">
+	<li><a href="services.html">Tax Planning & Compliance</a></li>
+	<li><a href="service2.html">Internal Audit, Risk & Compliance</a></li>
+	<li><a href="service3.html">Management & Technology Consulting</a></li>
+	<li><a href="service4.html">Transaction Services</a></li>
+	<li><a href="service5.html">Turnaround & restructuring</a></li>
+	<li><a href="service6.html">State & Local Incentives & Credits Negotiation</a></li>
+	<li><a href="service7.html">Other Advisory Services</a></li>
+</ul>
+</li>
+  <li class="has-dropdown">
+  <span class="breadcrumb-tail">Federal tax planning & Compliance </span>
+  <span class="arrow">
+  <svg width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1 1l4 4 4-4" stroke="#555" stroke-width="1.5" fill="none" />
+  </svg></span>
+  
+    <ul class="dropdown">
+	<li><a href="#" data-target="subservice1">Federal tax planning & compliance</a></li>
+	<li><a href="#" data-target="subservice2">State and local taxation and incentives</a></li>
+	<li><a href="#" data-target="subservice3">International tax planning</a></li>
+	<li><a href="#" data-target="subservice4">Business formation and entity structuring</a></li>
+	<li><a href="#" data-target="subservice5">Transfer pricing</a></li>
+	<li><a href="#" data-target="subservice6">Research and development credits</a></li>
+	<li><a href="#" data-target="subservice7">Cost segregation</a></li>
+	<li><a href="#" data-target="subservice8">LIFO analysis and computation</a></li>
+	<li><a href="#" data-target="subservice9">IRS and state controversy representation</a></li>
+	<li><a href="#" data-target="subservice10">Estate and succession planning</a></li>
+</ul>
+  </li>
+  </ul>
+</nav>
+
+<div class="service-layout">
+  <!-- Left Sidebar -->
+  <aside class="subservice-sidebar">
+    <ul>
+	<li><a href="#" data-target="subservice1">Federal tax planning & compliance</a></li>
+	<li><a href="#" data-target="subservice2">State and local taxation and incentives</a></li>
+	<li><a href="#" data-target="subservice3">International tax planning</a></li>
+	<li><a href="#" data-target="subservice4">Business formation and entity structuring</a></li>
+	<li><a href="#" data-target="subservice5">Transfer pricing</a></li>
+	<li><a href="#" data-target="subservice6">Research and development credits</a></li>
+	<li><a href="#" data-target="subservice7">Cost segregation</a></li>
+	<li><a href="#" data-target="subservice8">LIFO analysis and computation</a></li>
+	<li><a href="#" data-target="subservice9">IRS and state controversy representation</a></li>
+	<li><a href="#" data-target="subservice10">Estate and succession planning</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+
+<section class="service-detail">
+	<h2>Tax Planning & Compliance</h2>
+	
+	<div id="subservice1" class="subservice active">
+	
+  <h3>Federal tax planning & Compliance</h3>
+  <p> Our Federal Tax Planning & Compliance service is designed to help businesses and individuals navigate the complexities of U.S. tax regulations with confidence and precision. We provide strategic guidance to minimize tax liabilities while ensuring full compliance with federal laws and reporting standards.
+  </p>
+
+	<h4>Key Features</h4>
+  <ul>
+    <li>Proactive Tax Planning</li>
+    <li>Regulatory Compliance</li>
+    <li>Estimated Tax Management</li>
+    <li>Entity Structuring Advice</li>
+    <li>IRS Representation</li>
+  </ul>
+  </div>
+  
+  	<div id="subservice2" class="subservice">
+	
+  <h3>State and local taxation and incentives</h3>
+  <p> Detail descriptions  </p>
+
+	<h4>Key Features</h4>
+  <ul>
+    <li>detail</li>
+  </ul>
+  </div>
+  
+  <div id="subservice3" class="subservice">
+	
+  <h3>Internation Tax Planning</h3>
+  <p> Detail descriptions  </p>
+
+	<h4>Key Features</h4>
+  <ul>
+    <li>detail</li>
+  </ul>
+  </div>
+  
+    <div id="subservice4" class="subservice">
+	
+  <h3>Business formation and entity structuring</h3>
+  <p> Detail descriptions  </p>
+
+	<h4>Key Features</h4>
+  <ul>
+    <li>detail</li>
+  </ul>
+  </div>
+  
+    <div id="subservice5" class="subservice">
+	
+  <h3>Transfer pricing</h3>
+  <p> Detail descriptions  </p>
+
+	<h4>Key Features</h4>
+  <ul>
+    <li>detail</li>
+  </ul>
+  </div>
+  
+    <div id="subservice6" class="subservice">
+	
+  <h3>Research and development credits</h3>
+  <p> Detail descriptions  </p>
+
+	<h4>Key Features</h4>
+  <ul>
+    <li>detail</li>
+  </ul>
+  </div>
+  
+    <div id="subservice7" class="subservice">
+	
+  <h3>Cost segregation</h3>
+  <p> Detail descriptions  </p>
+
+	<h4>Key Features</h4>
+  <ul>
+    <li>detail</li>
+  </ul>
+  </div>
+  
+    <div id="subservice8" class="subservice">
+	
+  <h3>LIFO analysis and computation</h3>
+  <p> Detail descriptions  </p>
+
+	<h4>Key Features</h4>
+  <ul>
+    <li>detail</li>
+  </ul>
+  </div>
+  
+    <div id="subservice9" class="subservice">
+	
+  <h3>IRS and state controversy representation</h3>
+  <p> Detail descriptions  </p>
+
+	<h4>Key Features</h4>
+  <ul>
+    <li>detail</li>
+  </ul>
+  </div>
+  
+  <div id="subservice10" class="subservice">
+	
+  <h3>Estate and succession planning</h3>
+  <p> Detail descriptions  </p>
+
+	<h4>Key Features</h4>
+  <ul>
+    <li>detail</li>
+  </ul>
+  </div>
+  </section>
+</div>
+
+</body>
+</html>
+
+
+  <footer>
+    <p>&copy; 2025 RHK Advisors. All rights reserved.</p>
+  </footer>
+  
+  
+ <script>
+ 
+ 
+const breadcrumbLinks = document.querySelectorAll('.breadcrumb a[data-target]');
+const subservices = document.querySelectorAll('.subservice');
+
+breadcrumbLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const targetId = link.dataset.target;
+
+    subservices.forEach(div => {
+      div.classList.remove('active');
+      div.style.display = 'none';
+    });
+
+    const targetDiv = document.getElementById(targetId);
+    targetDiv.style.display = 'block';
+
+    // Trigger reflow to restart animation
+    void targetDiv.offsetWidth;
+
+    targetDiv.classList.add('active');
+  });
+});
+
+const sidebarLinks = document.querySelectorAll('.subservice-sidebar a[data-target]');
+const sidebarSubservices = document.querySelectorAll('.subservice');
+
+sidebarLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const targetId = link.dataset.target;
+
+    // Toggle content
+    sidebarSubservices.forEach(div => {
+		div.classList.remove('active');
+		div.style.display = 'none';
+		});
+    
+	const targetDiv = document.getElementById(targetId);
+    targetDiv.style.display = 'block';
+
+    // Trigger reflow to restart animation
+    void targetDiv.offsetWidth;
+
+    targetDiv.classList.add('active');
+
+    // Highlight active link
+    sidebarLinks.forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+  });
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash.substring(1); // remove the #
+  const targetDiv = document.getElementById(hash);
+  const subservices = document.querySelectorAll('.subservice');
+
+  if (targetDiv) {
+	updateBreadcrumbTail(hash);
+    subservices.forEach(div => div.classList.remove('active'));
+    targetDiv.classList.add('active');
+  }
+});
+
+function updateBreadcrumbTail(subserviceId) {
+  const breadcrumbTail = document.querySelector('breadcrumb-tail');
+  const targetDiv = document.getElementById(subserviceId);
+
+  if (targetDiv && breadcrumbTail) {
+    const title = targetDiv.querySelector('h3')?.textContent || subserviceId;
+    breadcrumbTail.textContent = title;
+  }
+}
+
+sidebarLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const targetId = link.dataset.target;
+
+    // Toggle subservice content
+    subservices.forEach(div => div.classList.remove('active'));
+    document.getElementById(targetId).classList.add('active');
+
+    // Highlight active sidebar link
+    sidebarLinks.forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+
+    // Update breadcrumb tail
+    updateBreadcrumbTail(targetId);
+  });
+});
+</script>
+
