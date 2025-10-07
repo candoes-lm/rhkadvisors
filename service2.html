@@ -24,11 +24,11 @@
       <ul class="submenu">
 		<li><a href="services.html">Tax Planning & Compliance</a></li>
 		<li><a href="service2.html">Internal Audit, Risk & Compliance</a></li>
-		<li><a href="#service3">Management & Technology Consulting</a></li>
-		<li><a href="#service4">Transaction Services</a></li>
-		<li><a href="#service5">Turnaround & Restructuring</a></li>
-		<li><a href="#service6">State & Local Incentives & Credits Negotiation</a></li>
-		<li><a href="#service7">Other Advisory Services</a></li>
+		<li><a href="service3.html">Management & Technology Consulting</a></li>
+		<li><a href="service4.html">Transaction Services</a></li>
+		<li><a href="service5.html">Turnaround & Restructuring</a></li>
+		<li><a href="service6.html">State & Local Incentives & Credits Negotiation</a></li>
+		<li><a href="service7.html">Other Advisory Services</a></li>
 	  </ul>
 	  </li>
 	  <li>
@@ -100,11 +100,12 @@
 </ul>
 </li>
   <li class="has-dropdown">
-  <span>Internal controls review and design <span class="arrow">
+  <span class="breadcrumb-tail">Internal controls review and design </span>
+  <span class="arrow">
   <svg width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg">
     <path d="M1 1l4 4 4-4" stroke="#555" stroke-width="1.5" fill="none" />
   </svg></span>
-</span>
+
   
     <ul class="dropdown">
 	<li><a href="#" data-target="subservice1">Internal controls review and design</a></li>
@@ -175,60 +176,4 @@
     <p>&copy; 2025 RHK Advisors. All rights reserved.</p>
   </footer>
   
-  
- <script>
- 
- 
-const breadcrumbLinks = document.querySelectorAll('.breadcrumb a[data-target]');
-const subservices = document.querySelectorAll('.subservice');
-
-breadcrumbLinks.forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const targetId = link.dataset.target;
-
-    subservices.forEach(div => {
-      div.classList.remove('active');
-      div.style.display = 'none';
-    });
-
-    const targetDiv = document.getElementById(targetId);
-    targetDiv.style.display = 'block';
-
-    // Trigger reflow to restart animation
-    void targetDiv.offsetWidth;
-
-    targetDiv.classList.add('active');
-  });
-});
-
-const sidebarLinks = document.querySelectorAll('.subservice-sidebar a[data-target]');
-const sidebarSubservices = document.querySelectorAll('.subservice');
-
-sidebarLinks.forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const targetId = link.dataset.target;
-
-    // Toggle content
-    sidebarSubservices.forEach(div => {
-		div.classList.remove('active');
-		div.style.display = 'none';
-		});
-    
-	const targetDiv = document.getElementById(targetId);
-    targetDiv.style.display = 'block';
-
-    // Trigger reflow to restart animation
-    void targetDiv.offsetWidth;
-
-    targetDiv.classList.add('active');
-
-    // Highlight active link
-    sidebarLinks.forEach(l => l.classList.remove('active'));
-    link.classList.add('active');
-  });
-});
-
-</script>
-
+<script src="breadcrumb-nav.js"></script>
