@@ -16,6 +16,18 @@ header {
   position: relative;
 }
 
+.logo-img {
+  height: 125px; /* Adjust as needed */
+  width: auto;
+  display: block;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
 .site-header {
   text-decoration: none;
   color: inherit;
