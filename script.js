@@ -1,54 +1,88 @@
-const langButtons = document.querySelectorAll('.language-toggle button');
-const langBlocks = document.querySelectorAll('.lang-content');
+window.initLanguageToggle = function () {
+  const langButtons = document.querySelectorAll('.language-toggle button');
+  const langBlocks = document.querySelectorAll('.lang-content');
 
-langButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const selectedLang = button.id.replace('lang-', '');
+  langButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      //const selectedLang = button.id.replace('lang-', '');
+      const selectedLang = 'en';
 
-    // Toggle button styles
-    langButtons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
+      langButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
 
-    // Toggle content blocks
-    langBlocks.forEach(block => {
-      block.classList.remove('active');
-      if (block.classList.contains(`lang-${selectedLang}`)) {
-        block.classList.add('active');
+      langBlocks.forEach(block => {
+        block.classList.remove('active');
+        if (block.classList.contains(`lang-${selectedLang}`)) {
+          block.classList.add('active');
+        }
+      });
+    });
+  });
+};
+
+function initHeaderScripts() {
+  initLanguageToggle();
+  initSmoothScroll();
+  initLocationSection();
+  //initDropdownsForMobile();
+
+  // Responsive menu toggle
+  const toggleBtn = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  if (toggleBtn && navMenu) {
+    toggleBtn.addEventListener('click', () => {
+      toggleBtn.classList.toggle('open');
+      navMenu.classList.toggle('open');
+    });
+  }
+
+  // Dropdowns on mobile
+  document.querySelectorAll('#nav-menu > ul > li > a').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const parent = this.parentElement;
+      if (window.innerWidth <= 768 && parent.querySelector('.submenu')) {
+        e.preventDefault();
+        parent.classList.toggle('open');
       }
     });
   });
-});
+}
+
+// ✅ Expose globally so it can be called after script loads
+window.initHeaderScripts = initHeaderScripts;
 
 
 // Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
+function initSmoothScroll() {
+  const anchorLinks = document.querySelectorAll('a[href^="#"]');
+  anchorLinks.forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
 
-    // Optional: Close menu after clicking a link (mobile UX)
-    const navMenu = document.getElementById('nav-menu');
-    const toggleBtn = document.getElementById('menu-toggle');
-    if (navMenu.classList.contains('open')) {
-      navMenu.classList.remove('open');
-      toggleBtn.classList.remove('open');
-    }
-  });
-});
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
 
-// Toggle responsive menu
-const toggleBtn = document.getElementById('menu-toggle');
-const navMenu = document.getElementById('nav-menu');
-
-toggleBtn.addEventListener('click', () => {
-  toggleBtn.classList.toggle('open');
-  navMenu.classList.toggle('open');
-});
+      // Optional: Close menu after clicking a link (mobile UX)
+      const navMenu = document.getElementById('nav-menu');
+      const toggleBtn = document.getElementById('menu-toggle');
+      if (navMenu && toggleBtn && navMenu.classList.contains('open')) {
+        navMenu.classList.remove('open');
+        toggleBtn.classList.remove('open');
+      }
+    }); // ✅ closes anchor.addEventListener
+  }); // ✅ closes anchorLinks.forEach
+}
 
 // Enable dropdowns on mobile tap
-document.querySelectorAll('#nav-menu > ul > li > a').forEach(link => {
+function initDropdownsForMobile() {
+    const navMenu = document.getElementById('nav-menu');
+    if (!navMenu) return;
+    
+  const mobileAnchorLinks = navMenu.querySelectorAll('ul > li > a');
+  mobileAnchorLinks.forEach(link => {
   link.addEventListener('click', function (e) {
     const parent = this.parentElement;
     if (window.innerWidth <= 768 && parent.querySelector('.submenu')) {
@@ -57,6 +91,9 @@ document.querySelectorAll('#nav-menu > ul > li > a').forEach(link => {
     }
   });
 });
+}
+
+window.initDropdownsForMobile = initDropdownsForMobile;
 
 document.querySelector('.subscribe-form').addEventListener('submit', function (e) {
   e.preventDefault();
@@ -65,10 +102,14 @@ document.querySelector('.subscribe-form').addEventListener('submit', function (e
 });
 
 
+function initLocationSection() {
 /* Location Section */
 const locationSelect = document.getElementById('location-select');
 const locationAddress = document.getElementById('location-address');
 const locationMap = document.getElementById('location-map');
+const locationDetails = document.querySelector('.location-details');
+
+ if (!locationSelect || !locationAddress || !locationMap || !locationDetails) return;
 
 const locations = {
   address1: {
@@ -82,15 +123,15 @@ const locations = {
   address3: {
     address: 'Atlanta Office Address',
     map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212271.62992500217!2d-84.58502002907517!3d33.76727497207328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5045d6993098d%3A0x66fede2f990b630b!2sAtlanta%2C%20GA!5e0!3m2!1sen!2sus!4v1758237808269!5m2!1sen!2sus'
-  }
+  },
   // Add more locations here
 };
 
-const locationDetails = document.querySelector('.location-details');
 
 // ✅ Function to update map and address
 function updateLocation(locationKey) {
   const location = locations[locationKey];
+  if (!location) return;
 
   // Start fade-out
   locationDetails.classList.remove('fade-in');
@@ -107,12 +148,12 @@ function updateLocation(locationKey) {
 }
 
 // ✅ Initialize default location on page load
-window.addEventListener('DOMContentLoaded', () => {
   const defaultLocation = locationSelect.value || 'address1';
   updateLocation(defaultLocation);
-});
+
 
 locationSelect.addEventListener('change', () => {
-  const selected = locationSelect.value;
+  
   updateLocation(locationSelect.value);
 });
+}

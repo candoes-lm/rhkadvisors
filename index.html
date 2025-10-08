@@ -276,6 +276,18 @@
       .then(response => response.text())
       .then(data => {
         document.getElementById('header-placeholder').innerHTML = data;
+		
+		// Wait for header to load, then load scripts
+        const script = document.createElement('script');
+        script.src = 'script.js';
+		script.onload = () => {
+        if (window.initHeaderScripts) {
+          window.initHeaderScripts();
+        }
+      };
+
+        document.body.appendChild(script);
+
       });
   </script>
 
