@@ -3,270 +3,484 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RHK Advisors</title>
+  <title>RHK Advisors - Services</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
+  <div id="header-placeholder"></div>
 
-	<a href="index.html" class="site-header">
-  <h1>RHK Advisors</h1>
-  </a>
-  <button id="menu-toggle" aria-label="Toggle menu">
-    <span class="bar">Services</span>
-    <span class="bar">Members</span>
-    <span class="bar">About Me</span>
-  </button>
-  <nav id="nav-menu">
-    <ul>
-		<li>
-      <a href="services.html">Services</a>
-      <ul class="submenu">
-		<li><a href="services.html">Tax Planning & Compliance</a></li>
-		<li><a href="service2.html">Internal Audit, Risk & Compliance</a></li>
-		<li><a href="service3.html">Management & Technology Consulting</a></li>
-		<li><a href="service4.html">Transaction Services</a></li>
-		<li><a href="service5.html">Turnaround & Restructuring</a></li>
-		<li><a href="service6.html">State & Local Incentives & Credits Negotiation</a></li>
-		<li><a href="service7.html">Other Advisory Services</a></li>
-	  </ul>
-	  </li>
-	  <li>
-      <a href="members.html">Members</a>
-	  </li>
-	  <li>
-      <a href="#newsletter">Newsletter</a>
-      <ul class="submenu">
-		<li><a href="#curIssue">Latest Issue</a></li>
-		<li><a href="#passIssue">Past Issues</a></li>
-	  </ul>
-	  </li>
-    
-	<li class="language-toggle">
-	   <span class="globe-icon">🌐</span>
-	   <ul class="submenu">
-    <li><button data-lang="en" class="active">EN</button></li>
-    <li><button data-lang="ko">KR</button></li>
-	</ul>
-</li>
-</ul>
-  </nav>
-  
-  
-  </header>
-
-<nav class="breadcrumb-nav">
-	<ul class="breadcrumb">
-	    <li>
-      <a href="index.html" class="home-icon">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#003366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 9l9-7 9 7"></path>
-          <path d="M9 22V12h6v10"></path>
-        </svg>
-      </a>
-    </li>
-
-    <li class="separator">|</li>
-
-	
-  <li class="has-dropdown">
-  <a href="services.html">Services <span class="arrow">
-  <svg width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg">
-    <path d="M1 1l4 4 4-4" stroke="#555" stroke-width="1.5" fill="none" />
-  </svg>
-</span></a>
-  <ul class="dropdown">
-	<li><a href="services.html">Services</a></li>
-	<li><a href="members.html">Members</a></li>
-	<li><a href="newsletter.html">Newsletter</a></li>
-	<li><a href="about.html">About RHK Advisors</a></li>
-</ul></li>
-  <li class="has-dropdown">
-  <a href="service1.html">Tax Planning & Compliance <span class="arrow">
-  <svg width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg">
-    <path d="M1 1l4 4 4-4" stroke="#555" stroke-width="1.5" fill="none" />
-  </svg>
-</span>
-</a>
-  <ul class="dropdown">
-	<li><a href="services.html">Tax Planning & Compliance</a></li>
-	<li><a href="service2.html">Internal Audit, Risk & Compliance</a></li>
-	<li><a href="service3.html">Management & Technology Consulting</a></li>
-	<li><a href="service4.html">Transaction Services</a></li>
-	<li><a href="service5.html">Turnaround & restructuring</a></li>
-	<li><a href="service6.html">State & Local Incentives & Credits Negotiation</a></li>
-	<li><a href="service7.html">Other Advisory Services</a></li>
-</ul>
-</li>
-  <li class="has-dropdown">
-  <span class="breadcrumb-tail">Federal tax planning & Compliance </span>
-  <span class="arrow">
-  <svg width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg">
-    <path d="M1 1l4 4 4-4" stroke="#555" stroke-width="1.5" fill="none" />
-  </svg></span>
-  
-    <ul class="dropdown">
-	<li><a href="#" data-target="subservice1">Federal tax planning & compliance</a></li>
-	<li><a href="#" data-target="subservice2">State and local taxation and incentives</a></li>
-	<li><a href="#" data-target="subservice3">International tax planning</a></li>
-	<li><a href="#" data-target="subservice4">Business formation and entity structuring</a></li>
-	<li><a href="#" data-target="subservice5">Transfer pricing</a></li>
-	<li><a href="#" data-target="subservice6">Research and development credits</a></li>
-	<li><a href="#" data-target="subservice7">Cost segregation</a></li>
-	<li><a href="#" data-target="subservice8">LIFO analysis and computation</a></li>
-	<li><a href="#" data-target="subservice9">IRS and state controversy representation</a></li>
-	<li><a href="#" data-target="subservice10">Estate and succession planning</a></li>
-</ul>
-  </li>
-  </ul>
-</nav>
-
-<div class="service-layout">
-  <!-- Left Sidebar -->
-  <aside class="subservice-sidebar">
-    <ul>
-	<li><a href="#" data-target="subservice1">Federal tax planning & compliance</a></li>
-	<li><a href="#" data-target="subservice2">State and local taxation and incentives</a></li>
-	<li><a href="#" data-target="subservice3">International tax planning</a></li>
-	<li><a href="#" data-target="subservice4">Business formation and entity structuring</a></li>
-	<li><a href="#" data-target="subservice5">Transfer pricing</a></li>
-	<li><a href="#" data-target="subservice6">Research and development credits</a></li>
-	<li><a href="#" data-target="subservice7">Cost segregation</a></li>
-	<li><a href="#" data-target="subservice8">LIFO analysis and computation</a></li>
-	<li><a href="#" data-target="subservice9">IRS and state controversy representation</a></li>
-	<li><a href="#" data-target="subservice10">Estate and succession planning</a></li>
+  <nav class="breadcrumb-nav">
+    <ul class="breadcrumb">
+      <li>
+        <a href="index.html" class="home-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#003366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7"></path>
+            <path d="M9 22V12h6v10"></path>
+          </svg>
+        </a>
+      </li>
+      <li class="separator">|</li>
+      <li class="has-dropdown">
+        <a href="services.html">Services <span class="arrow">
+          <svg width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1l4 4 4-4" stroke="#555" stroke-width="1.5" fill="none" />
+          </svg>
+        </span></a>
+        <ul class="dropdown">
+          <li><a href="#tax-planning" data-service="tax-planning">Tax Planning & Compliance</a></li>
+          <li><a href="#internal-audit" data-service="internal-audit">Internal Audit, Risk & Compliance</a></li>
+          <li><a href="#management-tech" data-service="management-tech">Management & Technology Consulting</a></li>
+          <li><a href="#transaction" data-service="transaction">Transaction Services</a></li>
+          <li><a href="#turnaround" data-service="turnaround">Turnaround & Restructuring</a></li>
+          <li><a href="#state-local" data-service="state-local">State & Local Incentives & Credits Negotiation</a></li>
+          <li><a href="#other-advisory" data-service="other-advisory">Other Advisory Services</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown" id="service-title-dropdown">
+        <span class="breadcrumb-tail"></span>
+        <span class="arrow">
+          <svg width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1l4 4 4-4" stroke="#555" stroke-width="1.5" fill="none" />
+          </svg>
+        </span>
+        <ul class="dropdown" id="subservice-dropdown">
+          <!-- Subservices populated dynamically -->
+        </ul>
+      </li>
     </ul>
-  </aside>
+  </nav>
 
-  <!-- Main Content -->
+  <div class="service-layout">
+    <!-- Left Sidebar -->
+    <aside class="subservice-sidebar" id="subservice-sidebar">
+      <!-- Sidebar populated dynamically -->
+    </aside>
 
-<section class="service-detail">
-	<h2>Tax Planning & Compliance</h2>
-	
-	<div id="subservice1" class="subservice active">
-	
-  <h3>Federal tax planning & Compliance</h3>
-  <p> Our Federal Tax Planning & Compliance service is designed to help businesses and individuals navigate the complexities of U.S. tax regulations with confidence and precision. We provide strategic guidance to minimize tax liabilities while ensuring full compliance with federal laws and reporting standards.
-  </p>
-
-	<h4>Key Features</h4>
-  <ul>
-    <li>Proactive Tax Planning</li>
-    <li>Regulatory Compliance</li>
-    <li>Estimated Tax Management</li>
-    <li>Entity Structuring Advice</li>
-    <li>IRS Representation</li>
-  </ul>
+    <!-- Main Content -->
+    <section class="service-detail" id="service-detail">
+      <!-- Content populated dynamically -->
+    </section>
   </div>
-  
-  	<div id="subservice2" class="subservice">
-	
-  <h3>State and local taxation and incentives</h3>
-  <p> Detail descriptions  </p>
 
-	<h4>Key Features</h4>
-  <ul>
-    <li>detail</li>
-  </ul>
-  </div>
-  
-  <div id="subservice3" class="subservice">
-	
-  <h3>Internation Tax Planning</h3>
-  <p> Detail descriptions  </p>
 
-	<h4>Key Features</h4>
-  <ul>
-    <li>detail</li>
-  </ul>
-  </div>
-  
-    <div id="subservice4" class="subservice">
-	
-  <h3>Business formation and entity structuring</h3>
-  <p> Detail descriptions  </p>
+<div id="footer-placeholder"></div>
 
-	<h4>Key Features</h4>
-  <ul>
-    <li>detail</li>
-  </ul>
-  </div>
-  
-    <div id="subservice5" class="subservice">
-	
-  <h3>Transfer pricing</h3>
-  <p> Detail descriptions  </p>
+<button id="backToTop" title="Back to top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+       stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+</button>
 
-	<h4>Key Features</h4>
-  <ul>
-    <li>detail</li>
-  </ul>
-  </div>
-  
-    <div id="subservice6" class="subservice">
-	
-  <h3>Research and development credits</h3>
-  <p> Detail descriptions  </p>
 
-	<h4>Key Features</h4>
-  <ul>
-    <li>detail</li>
-  </ul>
-  </div>
-  
-    <div id="subservice7" class="subservice">
-	
-  <h3>Cost segregation</h3>
-  <p> Detail descriptions  </p>
 
-	<h4>Key Features</h4>
-  <ul>
-    <li>detail</li>
-  </ul>
-  </div>
-  
-    <div id="subservice8" class="subservice">
-	
-  <h3>LIFO analysis and computation</h3>
-  <p> Detail descriptions  </p>
+  <script src="script.js"></script>
+  <script>
+    // Data for all services (edit content here)
+    const servicesData = {
+      'tax-planning': {
+        title: 'Tax Planning & Compliance',
+        sidebar: `
+          <ul>
+            <li><a href="#" data-target="subservice1">Federal tax planning & compliance</a></li>
+            <li><a href="#" data-target="subservice2">State and local taxation and incentives</a></li>
+            <li><a href="#" data-target="subservice3">International tax planning</a></li>
+            <li><a href="#" data-target="subservice4">Business formation and entity structuring</a></li>
+            <li><a href="#" data-target="subservice5">Transfer pricing</a></li>
+            <li><a href="#" data-target="subservice6">Research and development credits</a></li>
+            <li><a href="#" data-target="subservice7">Cost segregation</a></li>
+            <li><a href="#" data-target="subservice8">LIFO analysis and computation</a></li>
+            <li><a href="#" data-target="subservice9">IRS and state controversy representation</a></li>
+            <li><a href="#" data-target="subservice10">Estate and succession planning</a></li>
+          </ul>`,
+        content: `
+          <h2>Tax Planning & Compliance</h2>
+          <div id="subservice1" class="subservice active">
+            <h3>Federal tax planning & compliance</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul>
+              <li>Tax Return Preparation</li>
+              <li>Tax Strategy Development</li>
+              <li>Compliance Audits</li>
+              <li>Estimated Tax Management</li>
+              <li>Entity Structuring Advice</li>
+              <li>IRS Representation</li>
+            </ul>
+          </div>
+          <div id="subservice2" class="subservice">
+            <h3>State and local taxation and incentives</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>detail</li></ul>
+          </div>
+          <div id="subservice3" class="subservice">
+            <h3>International Tax Planning</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>detail</li></ul>
+          </div>
+          <div id="subservice4" class="subservice">
+            <h3>Business formation and entity structuring</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>detail</li></ul>
+          </div>
+          <div id="subservice5" class="subservice">
+            <h3>Transfer pricing</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>detail</li></ul>
+          </div>
+          <div id="subservice6" class="subservice">
+            <h3>Research and development credits</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>detail</li></ul>
+          </div>
+          <div id="subservice7" class="subservice">
+            <h3>Cost segregation</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>detail</li></ul>
+          </div>
+          <div id="subservice8" class="subservice">
+            <h3>LIFO analysis and computation</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>detail</li></ul>
+          </div>
+          <div id="subservice9" class="subservice">
+            <h3>IRS and state controversy representation</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>detail</li></ul>
+          </div>
+          <div id="subservice10" class="subservice">
+            <h3>Estate and succession planning</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>detail</li></ul>
+          </div>`
+      },
+      'internal-audit': {
+        title: 'Internal Audit, Risk & Compliance',
+        sidebar: `
+          <ul>
+            <li><a href="#" data-target="subservice1">Internal controls review and design</a></li>
+            <li><a href="#" data-target="subservice2">Sarbanes-Oxley compliance</a></li>
+            <li><a href="#" data-target="subservice3">Enterprise risk management</a></li>
+          </ul>`,
+        content: `
+          <h2>Internal Audit, Risk & Compliance</h2>
+          <div id="subservice1" class="subservice active">
+            <h3>Internal controls review and design</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+          <div id="subservice2" class="subservice">
+            <h3>Sarbanes-Oxley compliance</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>detail</li></ul>
+          </div>
+          <div id="subservice3" class="subservice">
+            <h3>Enterprise risk management</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>detail</li></ul>
+          </div>`
+      },
+      // Add other services similarly...
+      'management-tech': {
+        title: 'Management & Technology Consulting',
+        sidebar: `
+          <ul>
+            <li><a href="#" data-target="subservice1">CFO outsourcing</a></li>
+            <li><a href="#" data-target="subservice2">Cash flow and financial modeling</a></li>
+            <li><a href="#" data-target="subservice3">strategic business planning and implementation</a></li>
+            <li><a href="#" data-target="subservice4">Business intelligence</a></li>
+            <li><a href="#" data-target="subservice5">Performance management and continuous improvement</a></li>
+            <li><a href="#" data-target="subservice6">Operations and supply chain optimization</a></li>
+            <li><a href="#" data-target="subservice7">ERP implementation support</a></li>
+            <li><a href="#" data-target="subservice8">Technology infrastructure</a></li>
+          </ul>`,
+        content: `
+          <h2>Management & Technology Consulting</h2>
+          <div id="subservice1" class="subservice active">
+            <h3>CFO outsourcing</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>detail</li></ul>
+          </div>
+		  <div id="subservice2" class="subservice active">
+            <h3>Cash flow and financial modeling</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>detail</li></ul>
+          </div>
+		  <div id="subservice3" class="subservice active">
+            <h3>Strategic business planning and implementation</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>detail</li></ul>
+          </div>
+		  <div id="subservice4" class="subservice active">
+            <h3>Business intelligence</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>detail</li></ul>
+          </div>
+		  <div id="subservice5" class="subservice active">
+            <h3>Performance management and continuous improvement</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>detail</li></ul>
+          </div>
+		  <div id="subservice6" class="subservice active">
+            <h3>Operations and supply chain optimization</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>detail</li></ul>
+          </div>
+		  <div id="subservice7" class="subservice active">
+            <h3>ERP implementation support</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>detail</li></ul>
+          </div>
+		  <div id="subservice8" class="subservice active">
+            <h3>Technology infrastructure</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>detail</li></ul>
+          </div>
+          `
+      },
+      'transaction': {
+        title: 'Transaction Services',
+        sidebar: `
+          <ul>
+            <li><a href="#" data-target="subservice1">Sell side and buy side advisory</a></li>
+            <li><a href="#" data-target="subservice2">Financial and operational due diligence</a></li>
+            <li><a href="#" data-target="subservice3">Business valuation</a></li>
+            <li><a href="#" data-target="subservice4">Quality of earnings assessments</a></li>
+            <li><a href="#" data-target="subservice5">Introduction to sources of capital</a></li>
+            <li><a href="#" data-target="subservice6">Post-merger integration</a></li>
+            <li><a href="#" data-target="subservice7">Financial modeling</a></li>
+          </ul>`,
+        content: `
+          <h2>Transaction Services</h2>
+          <div id="subservice1" class="subservice active">
+            <h3>Sell side and buy side advisory</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice2" class="subservice active">
+            <h3>Financial and operational due diligence</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice3" class="subservice active">
+            <h3>Business valuation</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice4" class="subservice active">
+            <h3>Quality of earnings assessments</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice5" class="subservice active">
+            <h3>Introduction to sources of capital</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice6" class="subservice active">
+            <h3>Post-merger integration</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice7" class="subservice active">
+            <h3>Financial modeling</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+          `
+      },
+      'turnaround': {
+        title: 'Turnaround & Restructuring',
+        sidebar: `
+          <ul>
+            <li><a href="#" data-target="subservice1">Crisis management</a></li>
+            <li><a href="#" data-target="subservice2">Budget reviews</a></li>
+            <li><a href="#" data-target="subservice3">Debt restructuring</a></li>
+          </ul>`,
+        content: `
+          <h2>Turnaround & Restructuring</h2>
+          <div id="subservice1" class="subservice active">
+            <h3>Crisis management</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice2" class="subservice active">
+            <h3>Budget reviews</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice3" class="subservice active">
+            <h3>Debt restructuring</h3>
+            <p>Detail descriptions</p>
+            <h4>Key Features</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+          `
+      },
+      'state-local': {
+        title: 'State & Local Incentives & Credits Negotiation',
+        sidebar: `
+          <ul>
+            <li><a href="#" data-target="subservice1">Researching tax benefits for new investments</a></li>
+            <li><a href="#" data-target="subservice2">Securing public-sector financial incentives through government negotiations</a></li>
+            <li><a href="#" data-target="subservice3">Supporting incentive applications and compliance fulfillment</a></li>
+            <li><a href="#" data-target="subservice4">Guidance on workforce and sector-targeted incentive programs</a></li>
+          </ul>`,
+        content: `
+          <h2>State & Local Incentives & Credits Negotiation</h2>
+          <div id="subservice1" class="subservice active">
+            <h3>Researching tax benefits for new investments</h3>
+            <p>Identifying available tax credits and incentives for new investments</p>
+            <h4>Key Features</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice2" class="subservice active">
+            <h3>Securing public-sector financial incentives through government negotiations</h3>
+            <p>Negotiation with state and local governments to secure grants, tax abatements, and other financial incentives </p>
+            <h4>Key Features</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice3" class="subservice active">
+            <h3>Supporting incentive applications and compliance fulfillment</h3>
+            <p>Assistance with applications and compliance requirements for awarded incentives</p>
+            <h4>Key Features</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice4" class="subservice active">
+            <h3>Guidance on workforce and sector-targeted incentive programs</h3>
+            <p>Advisory on employment-based and industry-specific incentive programs </p>
+            <h4>Key Features</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+          `
+      },
+      'other-advisory': {
+        title: 'Other Advisory Services',
+        sidebar: `
+          <ul>
+            <li><a href="#" data-target="subservice1">Cash flow projections</a></li>
+            <li><a href="#" data-target="subservice2">Resource solutions</a></li>
+            <li><a href="#" data-target="subservice3">Emerging market and foreign partnerships</a></li>
+            <li><a href="#" data-target="subservice4">Strategic supplier partnerships</a></li>
+            <!-- Add remaining -->
+          </ul>`,
+        content: `
+          <h2>Other Advisory Services</h2>
+          <div id="subservice1" class="subservice active">
+            <h3>Cash flow projections</h3>
+            <p> </p>
+            <h4>Key Features</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice2" class="subservice active">
+            <h3>Resource solutions</h3>
+            <p></p>
+            <h4>Key Features</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice3" class="subservice active">
+            <h3>Emerging market and foreign partnerships</h3>
+            <p> </p>
+            <h4>Key Features</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice4" class="subservice active">
+            <h3>Strategic supplier partnerships</h3>
+            <p> </p>
+            <h4>Key Features</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+          `
+      }
+    };
 
-	<h4>Key Features</h4>
-  <ul>
-    <li>detail</li>
-  </ul>
-  </div>
-  
-    <div id="subservice9" class="subservice">
-	
-  <h3>IRS and state controversy representation</h3>
-  <p> Detail descriptions  </p>
+    // Function to load a service
+    function loadService(serviceKey) {
+      const data = servicesData[serviceKey] || servicesData['tax-planning']; // Default to first
+      document.querySelector('.breadcrumb-tail').textContent = data.title;
+      const dropdown = document.getElementById('subservice-dropdown');
+      dropdown.innerHTML = data.sidebar.replace('<ul>', '').replace('</ul>', '').trim(); // Populate dropdown from sidebar
+      document.getElementById('subservice-sidebar').innerHTML = data.sidebar;
+      document.getElementById('service-detail').innerHTML = data.content;
 
-	<h4>Key Features</h4>
-  <ul>
-    <li>detail</li>
-  </ul>
-  </div>
-  
-  <div id="subservice10" class="subservice">
-	
-  <h3>Estate and succession planning</h3>
-  <p> Detail descriptions  </p>
+      // Show first subservice by default
+      const subservices = document.querySelectorAll('.subservice');
+      subservices.forEach(div => { div.style.display = 'none'; div.classList.remove('active'); });
+      const firstSub = document.getElementById('subservice1');
+      if (firstSub) {
+        firstSub.style.display = 'block';
+        firstSub.classList.add('active');
+      }
 
-	<h4>Key Features</h4>
-  <ul>
-    <li>detail</li>
-  </ul>
-  </div>
-  </section>
-</div>
+      // Re-attach toggling events
+      attachToggleEvents();
+    }
 
+    // Attach subservice toggle events
+    function attachToggleEvents() {
+      const sidebarLinks = document.querySelectorAll('.subservice-sidebar a[data-target]');
+      const breadcrumbLinks = document.querySelectorAll('.breadcrumb a[data-target]');
+      const subservices = document.querySelectorAll('.subservice');
+
+      [...sidebarLinks, ...breadcrumbLinks].forEach(link => {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          const targetId = link.dataset.target;
+          subservices.forEach(div => { div.style.display = 'none'; div.classList.remove('active'); });
+          const targetDiv = document.getElementById(targetId);
+          if (targetDiv) {
+            targetDiv.style.display = 'block';
+            void targetDiv.offsetWidth; // Reflow for animation
+            targetDiv.classList.add('active');
+          }
+          sidebarLinks.forEach(l => l.classList.remove('active'));
+          if (link.closest('.subservice-sidebar')) link.classList.add('active');
+        });
+      });
+    }
+
+    // Handle main service switches
+    document.querySelectorAll('.breadcrumb a[data-service]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const serviceKey = link.dataset.service;
+        loadService(serviceKey);
+        window.location.hash = link.getAttribute('href').substring(1); // Update hash
+      });
+    });
+
+    // Load service based on URL hash
+    const hash = window.location.hash.substring(1);
+    loadService(hash || 'tax-planning');
+  </script>
 </body>
 </html>
-
-
-  <footer>
-    <p>&copy; 2025 RHK Advisors. All rights reserved.</p>
-  </footer>
-  
-<script src="breadcrumb-nav.js"></script>
-  

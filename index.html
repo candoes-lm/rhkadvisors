@@ -23,7 +23,7 @@
     <p>최고 수준의 회계, 세무 및 자문 서비스를 제공하다</p>
   </section>
 
-<section id="services" class="lang-content lang-en active">
+<section id="services" class="lang-content lang-en active reveal">
   <h2>Our Services</h2>
  <div class="services-scroll">
  <div class="service-column">
@@ -99,7 +99,7 @@
 
   </section>
   
-  <section id="services" class="lang-content lang-ko">
+  <section id="services" class="lang-content lang-ko reveal">
   <h2>우리의 서비스</h2>
  <div class="services-scroll">
  <div class="service-column">
@@ -108,7 +108,6 @@
     <h3>세금 계획 및 준수</h3>
   </div>
   <div class="service-back">
-    <h3>세금 계획 및 준수</h3>
     <ul>
       	<li><a href="services.html#subservice1&lang=ko">연방 세금 계획 및 준수</a></li>
 		<li><a href="services.html#subservice2&lang=ko">주 및 지방 세금 및 인센티브</a></li>
@@ -130,7 +129,6 @@
     <h3>Internal Audit, Risk & Compliance</h3>
   </div>
   <div class="service-back">
-    <h3>Internal Audit, Risk & Compliance</h3>
     <ul>
       <li>Internal controls review and design</li>
       <li>Serbanes-Oxley compliance</li>
@@ -144,7 +142,6 @@
     <h3>Management & Technology Consulting</h3>
   </div>
   <div class="service-back">
-    <h3>Management & Technology Consulting</h3>
     <ul>
       <li>CFO outsourcing</li>
       <li>Cash flow and financial modeling</li>
@@ -163,7 +160,6 @@
     <h3>Transaction Services</h3>
   </div>
   <div class="service-back">
-    <h3>Transaction Services</h3>
     <ul>
       <li>Sell side and buy side advisory</li>
       <li>Financial and operational due diligence</li>
@@ -179,7 +175,7 @@
 
   </section>
   
-  <section id="newsletter">
+  <section id="newsletter" class="reveal">
   <div class="newsletter-container">
     <h2>Latest Insights & Updates</h2>
     <div class="newsletter-list">
@@ -204,7 +200,7 @@
 
 </section>
 
-<section class="lang-content lang-en active" id="locations">
+<section class="lang-content lang-en active reveal" id="locations">
   <h2>Our Offices</h2>
   <div class="location-selector">
     <label for="location-select">Choose a location:</label>
@@ -222,7 +218,7 @@
   </div>
 </section>
 
-<section class="lang-content lang-ko" id="locations">
+<section class="lang-content lang-ko reveal" id="locations">
   <h2>우리 사무실</h2>
   <div class="location-selector">
     <label for="location-select">위치를 선택하세요:</label>
@@ -240,49 +236,56 @@
   </div>
 </section>
 
+<div id="footer-placeholder"></div>
 
+<button id="backToTop" title="Back to top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+       stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+</button>
 
-  <section class="lang-content lang-en active" id="contact">
-    <h2>Contact Us</h2>
-    <p>HQ: https://www.pkf.com/
-    <p>Korean Desk: https://plenuscpas.com/
-    <p>Email: Alex.hong@plenuscpas.com</p>
-    <p>Phone: 248-213-0011</p>
-  </section>
-  
-   <section class="lang-content lang-ko" id="contact">
-    <h2>문의하기</h2>
-    <p>본부: https://www.pkf.com/
-    <p>한국어 데스크: https://plenuscpas.com/
-    <p>이메일: Alex.hong@plenuscpas.com</p>
-    <p>전화: 248-213-0011</p>
-  </section>
-
-  <footer>
-    <p class="lang-content lang-en active">&copy; 2025 RHK Advisors. All rights reserved.</p>
-    <p class="lang-content lang-ko">&copy; 2025 RHK 어드바이저스. 모든 권리 보유.</p>
-  </footer>
 
   <script>
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header-placeholder').innerHTML = data;
-		
-		// Wait for header to load, then load scripts
-        const script = document.createElement('script');
-        script.src = 'script.js';
-		script.onload = () => {
-        if (window.initHeaderScripts) {
-          window.initHeaderScripts();
-        }
-      };
+     
+      // Scroll Reveal Animation
+const revealElements = document.querySelectorAll('.reveal');
 
-        document.body.appendChild(script);
+function revealOnScroll() {
+  revealElements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      el.classList.add('visible');
+    }
+  });
+}
 
-      });
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
+// Back to Top Button
+const backToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    backToTop.classList.add('show');
+  } else {
+    backToTop.classList.remove('show');
+  }
+});
+
+backToTop.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
   </script>
 
   <script src="script.js"></script>
+  <script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>

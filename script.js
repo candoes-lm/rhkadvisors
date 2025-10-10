@@ -20,6 +20,50 @@ window.initLanguageToggle = function () {
   });
 };
 
+// Generic function to load and inject HTML components with optional script loading
+function loadComponent(url, placeholderId, options = {}) {
+  fetch(url)
+    .then(response => response.text())
+    .then(data => {
+      const placeholder = document.getElementById(placeholderId);
+      if (placeholder) {
+        placeholder.innerHTML = data;
+
+        // Force style recalculation
+        const elements = placeholder.querySelectorAll('*');
+        elements.forEach(el => el.style.display = ''); // Reset display to trigger reflow
+        
+        // Handle script loading if specified (e.g., for header)
+        if (options.scriptSrc) {
+          const script = document.createElement('script');
+          script.src = options.scriptSrc;
+          script.onload = () => {
+            if (options.onScriptLoad) options.onScriptLoad();
+          };
+          document.body.appendChild(script);
+        }
+      }
+    })
+    .catch(error => console.error(`Error loading ${placeholderId}:`, error));
+}
+
+// Load components when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Load header with script
+  loadComponent('header.html', 'header-placeholder', {
+    scriptSrc: 'script.js',
+    onScriptLoad: () => {
+      if (window.initHeaderScripts) {
+        window.initHeaderScripts();
+      }
+    }
+  });
+
+  // Load footer (no script needed)
+  loadComponent('footer.html', 'footer-placeholder');
+});
+
+
 function initHeaderScripts() {
   initLanguageToggle();
   initSmoothScroll();
@@ -157,3 +201,4 @@ locationSelect.addEventListener('change', () => {
   updateLocation(locationSelect.value);
 });
 }
+
