@@ -479,8 +479,70 @@
     });
 
     // Load service based on URL hash
-    const hash = window.location.hash.substring(1);
-    loadService(hash || 'tax-planning');
+// --- Enhanced Hash Loader (supports subservice targeting + sidebar highlight + auto offset scroll) ---
+const hash = window.location.hash.substring(1);
+
+if (hash) {
+  // If hash includes a subservice indicator, e.g. "tax-planning:subservice3"
+  const [serviceKey, subKey] = hash.split(':');
+  loadService(serviceKey || 'tax-planning');
+
+  // Wait a moment for DOM to update before showing subservice
+  if (subKey) {
+    setTimeout(() => {
+      const targetDiv = document.getElementById(subKey);
+      if (targetDiv) {
+        // Hide all subservice sections
+        document.querySelectorAll('.subservice').forEach(div => {
+          div.style.display = 'none';
+          div.classList.remove('active');
+        });
+
+        // Show the chosen one
+        targetDiv.style.display = 'block';
+        targetDiv.classList.add('active');
+
+        // Highlight sidebar item
+        document.querySelectorAll('.subservice-sidebar a').forEach(a => {
+          a.classList.remove('active');
+          if (a.getAttribute('href') === `#${subKey}`) {
+            a.classList.add('active');
+          }
+        });
+
+        // --- Auto-detect header height for smooth scroll offset ---
+        const headerElement = document.querySelector('header, .site-header, #header-placeholder');
+        let headerOffset = 0;
+
+        if (headerElement) {
+          const headerRect = headerElement.getBoundingClientRect();
+          headerOffset = headerRect.height + 20; // Add small buffer
+        }
+
+        // Include breadcrumb height (if exists)
+        const breadcrumb = document.querySelector('.breadcrumb-nav');
+        if (breadcrumb) {
+          const crumbRect = breadcrumb.getBoundingClientRect();
+          headerOffset += crumbRect.height / 2; // slight extra offset
+        }
+
+        // Calculate position and scroll smoothly
+        const elementPosition = targetDiv.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 400);
+  }
+} else {
+  loadService('tax-planning');
+}
+
+
+
   </script>
 </body>
 </html>

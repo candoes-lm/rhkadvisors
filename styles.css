@@ -32,7 +32,7 @@ header {
 /* Hero Section */
 #hero {
   background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)),
-              url('images/pexels-scottwebb-27406.jpg') center/cover no-repeat; 
+              url('images/pexels-scottwebb-27406_compressed.jpg') center/cover no-repeat; 
   color: white;
   text-align: center;
   padding: 5rem 1rem 4rem;
@@ -1137,34 +1137,77 @@ section {
   transition: transform 0.3s ease;
 }
 
+/* ===============================
+   Service Detail Content Area Enhancement
+   =============================== */
 .service-detail {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+  flex: 1;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem 2rem 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Subtle left accent line (matches your blue theme) */
+.service-detail::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(180deg, #003366, #0055aa);
+  border-radius: 6px 0 0 6px;
+}
+
+/* Headings hierarchy */
 .service-detail h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
   color: #003366;
   margin-bottom: 1rem;
-}
-
-.service-detail p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #333;
-  margin-bottom: 1.5rem;
+  position: relative;
 }
 
 .service-detail h3 {
-  margin-top: 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: #0055aa;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
 }
 
-.service-detail ul {
-  list-style: disc;
-  padding-left: 1.5rem;
-  color: #555;
+.service-detail p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 1.2rem;
 }
+
+/* Lists styling */
+.service-detail ul {
+  list-style: none;
+  padding-left: 1.5rem;
+  color: #333;
+}
+
+.service-detail ul li {
+  position: relative;
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+.service-detail ul li::before {
+  content: "▹";
+  position: absolute;
+  left: -1.2rem;
+  color: #0055aa;
+  font-size: 1.1rem;
+}
+
 
 .service-image {
   margin-top: 2rem;
@@ -1180,14 +1223,36 @@ section {
 .service-layout {
   display: flex;
   gap: 2rem;
+  align-items: flex-start; /* ensures both start at same vertical point */
   max-width: 1000px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
 
-.subservice-sidebar {
-  width: 200px;
+
+@keyframes contentFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
+
+.service-detail, .subservice.active {
+  animation: contentFadeIn 0.6s ease both;
+}
+
+
+.subservice-sidebar {
+  position: sticky;
+  top: 120px; /* adjust depending on your header height */
+  align-self: flex-start;
+  width: 240px;
+  flex-shrink: 0;
+  background: #f8fafc; /* subtle background to make it stand out */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 1rem 1.25rem;
+  z-index: 2;
+}
+
 
 .subservice-sidebar ul {
   list-style: none;
@@ -1199,40 +1264,65 @@ section {
 }
 
 .subservice-sidebar a {
-  text-decoration: none;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
   color: #003366;
   font-weight: 500;
-  transition: color 0.3s ease;
+  text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.subservice-sidebar a:hover {
+  background-color: rgba(0, 85, 170, 0.08);
+  color: #0055aa;
 }
 
 .subservice-sidebar a.active {
+  background-color: #e6f0ff;
   color: #0055aa;
-  font-weight: 700;
+  font-weight: 600;
 }
+
 
 .service-detail {
   flex: 1;
 }
 
+/* Subservice box styling */
 .subservice {
-  display: none;
-  margin-top: 2rem;
-    padding: 1rem;
-  border: 1px solid #eee;
-  border-radius: 6px;
-  background-color: #f9f9f9;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-
-
+  background: #f8faff;
+  border: 1px solid #e0e8f0;
+  border-left: 4px solid #0055aa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.subservice.active {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
+.subservice:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
 
+/* Subservice title */
+.subservice h3 {
+  color: #003366;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Fade-in animation for newly loaded subservice */
+.subservice.active {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Optional: subtle divider lines between subservices */
+.subservice + .subservice {
+  border-top: 1px dashed #ccddee;
+  margin-top: 2rem;
+  padding-top: 2rem;
 }
 
 /* ===============================

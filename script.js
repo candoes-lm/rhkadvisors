@@ -106,7 +106,7 @@ function initSmoothScroll() {
 
       const target = document.querySelector(this.getAttribute('href'));
       if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
 
       // Optional: Close menu after clicking a link (mobile UX)
