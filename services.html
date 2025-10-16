@@ -9,7 +9,7 @@
 <body>
   <div id="header-placeholder"></div>
 
-  <nav class="breadcrumb-nav">
+  <nav class="breadcrumb-nav lang-content lang-en active">
     <ul class="breadcrumb">
       <li>
         <a href="index.html" class="home-icon">
@@ -34,6 +34,47 @@
           <li><a href="#turnaround" data-service="turnaround">Turnaround & Restructuring</a></li>
           <li><a href="#state-local" data-service="state-local">State & Local Incentives & Credits Negotiation</a></li>
           <li><a href="#other-advisory" data-service="other-advisory">Other Advisory Services</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown" id="service-title-dropdown">
+        <span class="breadcrumb-tail"></span>
+        <span class="arrow">
+          <svg width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1l4 4 4-4" stroke="#555" stroke-width="1.5" fill="none" />
+          </svg>
+        </span>
+        <ul class="dropdown" id="subservice-dropdown">
+          <!-- Subservices populated dynamically -->
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+<nav class="breadcrumb-nav lang-content lang-ko">
+    <ul class="breadcrumb">
+      <li>
+        <a href="index.html" class="home-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#003366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7"></path>
+            <path d="M9 22V12h6v10"></path>
+          </svg>
+        </a>
+      </li>
+      <li class="separator">|</li>
+      <li class="has-dropdown">
+        <a href="services.html">서비스 <span class="arrow">
+          <svg width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1l4 4 4-4" stroke="#555" stroke-width="1.5" fill="none" />
+          </svg>
+        </span></a>
+        <ul class="dropdown">
+          <li><a href="#tax-planning" data-service="tax-planning">세금 계획 및 준수</a></li>
+          <li><a href="#internal-audit" data-service="internal-audit">내부 감사, 리스크 및 컴플라이언스</a></li>
+          <li><a href="#management-tech" data-service="management-tech">경영 및 기술 컨설팅</a></li>
+          <li><a href="#transaction" data-service="transaction">거래 서비스</a></li>
+          <li><a href="#turnaround" data-service="turnaround">경영 개선 및 구조조정</a></li>
+          <li><a href="#state-local" data-service="state-local">주 및 지방 인센티브 및 세액 공제 협상</a></li>
+          <li><a href="#other-advisory" data-service="other-advisory">기타 자문 서비스</a></li>
         </ul>
       </li>
       <li class="has-dropdown" id="service-title-dropdown">
@@ -79,7 +120,8 @@
     // Data for all services (edit content here)
     const servicesData = {
       'tax-planning': {
-        title: 'Tax Planning & Compliance',
+        en: {
+		title: 'Tax Planning & Compliance',
         sidebar: `
           <ul>
             <li><a href="#" data-target="subservice1">Federal tax planning & compliance</a></li>
@@ -162,9 +204,96 @@
             <h4>Key Features</h4>
             <ul><li>detail</li></ul>
           </div>`
-      },
+		},
+        ko: {
+		title: '세금 계획 및 준수',
+        sidebar: `
+          <ul>
+            <li><a href="#" data-target="subservice1">연방 세금 계획 및 준수</a></li>
+            <li><a href="#" data-target="subservice2">주 및 지방 과세와 인센티브</a></li>
+            <li><a href="#" data-target="subservice3">국제 세금 계획</a></li>
+            <li><a href="#" data-target="subservice4">사업 설립 및 법인 구조화</a></li>
+            <li><a href="#" data-target="subservice5">이전 가격 설정</a></li>
+            <li><a href="#" data-target="subservice6">연구 및 개발 세액 공제</a></li>
+            <li><a href="#" data-target="subservice7">비용 분류</a></li>
+            <li><a href="#" data-target="subservice8">후입선출(LIFO) 분석 및 계산</a></li>
+            <li><a href="#" data-target="subservice9">IRS 및 주 관련 분쟁 대리</a></li>
+            <li><a href="#" data-target="subservice10">재산 및 상속 계획</a></li>
+          </ul>`,
+        content: `
+          <h2>세금 계획 및 준수</h2>
+          <div id="subservice1" class="subservice active">
+            <h3>연방 세금 계획 및 준수</h3>
+            <p>상세 설명</p>
+            <h4>주요 특징</h4>
+            <ul>
+              <li>세금 신고 준비</li>
+              <li>세금 전략 개발</li>
+              <li>컴플라이언스 감사</li>
+              <li>예상 세금 관리</li>
+              <li>법인 구조 조언</li>
+              <li>IRS 대리</li>
+            </ul>
+          </div>
+          <div id="subservice2" class="subservice">
+            <h3>주 및 지방 과세와 인센티브</h3>
+            <p>상세 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>detail</li></ul>
+          </div>
+          <div id="subservice3" class="subservice">
+            <h3>국제 세금 계획</h3>
+            <p>상세 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>detail</li></ul>
+          </div>
+          <div id="subservice4" class="subservice">
+            <h3>사업 설립 및 법인 구조화</h3>
+            <p>상세 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>detail</li></ul>
+          </div>
+          <div id="subservice5" class="subservice">
+            <h3>이전 가격 설정</h3>
+            <p>상세 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>detail</li></ul>
+          </div>
+          <div id="subservice6" class="subservice">
+            <h3>연구 및 개발 세액 공제</h3>
+            <p>상세 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>detail</li></ul>
+          </div>
+          <div id="subservice7" class="subservice">
+            <h3>비용 분류</h3>
+            <p>상세 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>detail</li></ul>
+          </div>
+          <div id="subservice8" class="subservice">
+            <h3>후입선출(LIFO) 분석 및 계산</h3>
+            <p>상세 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>detail</li></ul>
+          </div>
+          <div id="subservice9" class="subservice">
+            <h3>IRS 및 주 관련 분쟁 대리</h3>
+            <p>상세 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>detail</li></ul>
+          </div>
+          <div id="subservice10" class="subservice">
+            <h3>재산 및 상속 계획</h3>
+            <p>상세 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>detail</li></ul>
+          </div>`
+		},
+		},
       'internal-audit': {
-        title: 'Internal Audit, Risk & Compliance',
+        en: {
+		title: 'Internal Audit, Risk & Compliance',
         sidebar: `
           <ul>
             <li><a href="#" data-target="subservice1">Internal controls review and design</a></li>
@@ -192,9 +321,40 @@
             <ul><li>detail</li></ul>
           </div>`
       },
+		ko: {
+					title: '내부 감사, 리스크 및 준법',
+        sidebar: `
+          <ul>
+            <li><a href="#" data-target="subservice1">내부 통제 검토 및 설계</a></li>
+            <li><a href="#" data-target="subservice2">사베인스-옥슬리 준수</a></li>
+            <li><a href="#" data-target="subservice3">기업 리스크 관리</a></li>
+          </ul>`,
+        content: `
+          <h2>내부 감사, 리스크 및 준법</h2>
+          <div id="subservice1" class="subservice active">
+            <h3>내부 통제 검토 및 설계</h3>
+            <p>상세 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+          <div id="subservice2" class="subservice">
+            <h3>사베인스-옥슬리 준수</h3>
+            <p>상세 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>detail</li></ul>
+          </div>
+          <div id="subservice3" class="subservice">
+            <h3>기업 리스크 관리</h3>
+            <p>상세 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>detail</li></ul>
+          </div>`
+		},
+	},
       // Add other services similarly...
       'management-tech': {
-        title: 'Management & Technology Consulting',
+        en: {
+		title: 'Management & Technology Consulting',
         sidebar: `
           <ul>
             <li><a href="#" data-target="subservice1">CFO outsourcing</a></li>
@@ -258,7 +418,74 @@
           </div>
           `
       },
+		ko: {
+					title: '경영 및 기술 컨설팅',
+        sidebar: `
+          <ul>
+            <li><a href="#" data-target="subservice1">CFO 아웃소싱</a></li>
+            <li><a href="#" data-target="subservice2">현금 흐름 및 재무 모델링</a></li>
+            <li><a href="#" data-target="subservice3">전략적 사업 계획 및 구현</a></li>
+            <li><a href="#" data-target="subservice4">비즈니스 인텔리전스</a></li>
+            <li><a href="#" data-target="subservice5">성과 관리 및 지속적인 개선</a></li>
+            <li><a href="#" data-target="subservice6">운영 및 공급망 최적화</a></li>
+            <li><a href="#" data-target="subservice7">ERP 구현 지원</a></li>
+            <li><a href="#" data-target="subservice8">기술 인프라</a></li>
+          </ul>`,
+        content: `
+          <h2>경영 및 기술 컨설팅</h2>
+          <div id="subservice1" class="subservice active">
+            <h3>CFO 아웃소싱</h3>
+            <p>자세한 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>detail</li></ul>
+          </div>
+		  <div id="subservice2" class="subservice active">
+            <h3>현금 흐름 및 재무 모델링</h3>
+            <p>자세한 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>detail</li></ul>
+          </div>
+		  <div id="subservice3" class="subservice active">
+            <h3>전략적 사업 계획 및 구현</h3>
+            <p>자세한 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>detail</li></ul>
+          </div>
+		  <div id="subservice4" class="subservice active">
+            <h3>비즈니스 인텔리전스</h3>
+            <p>자세한 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>detail</li></ul>
+          </div>
+		  <div id="subservice5" class="subservice active">
+            <h3>성과 관리 및 지속적인 개선</h3>
+            <p>자세한 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>detail</li></ul>
+          </div>
+		  <div id="subservice6" class="subservice active">
+            <h3>운영 및 공급망 최적화</h3>
+            <p>자세한 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>detail</li></ul>
+          </div>
+		  <div id="subservice7" class="subservice active">
+            <h3>ERP 구현 지원</h3>
+            <p>자세한 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>detail</li></ul>
+          </div>
+		  <div id="subservice8" class="subservice active">
+            <h3>기술 인프라</h3>
+            <p>자세한 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>detail</li></ul>
+          </div>
+          `
+		},
+	},
       'transaction': {
+		en: {
         title: 'Transaction Services',
         sidebar: `
           <ul>
@@ -316,7 +543,67 @@
           </div>
           `
       },
+		ko: {
+		        title: '거래 서비스',
+        sidebar: `
+          <ul>
+            <li><a href="#" data-target="subservice1">매도측 및 매수측 자문</a></li>
+            <li><a href="#" data-target="subservice2">재무 및 운영 실사</a></li>
+            <li><a href="#" data-target="subservice3">사업 가치 평가</a></li>
+            <li><a href="#" data-target="subservice4">수입 평가의 질</a></li>
+            <li><a href="#" data-target="subservice5">자본의 원천 소개</a></li>
+            <li><a href="#" data-target="subservice6">합병 후 통합</a></li>
+            <li><a href="#" data-target="subservice7">재무 모델링</a></li>
+          </ul>`,
+        content: `
+          <h2>거래 서비스</h2>
+          <div id="subservice1" class="subservice active">
+            <h3>매도측 및 매수측 자문</h3>
+            <p>자세한 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice2" class="subservice active">
+            <h3>재무 및 운영 실사</h3>
+            <p>자세한 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice3" class="subservice active">
+            <h3>사업 가치 평가</h3>
+            <p>자세한 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice4" class="subservice active">
+            <h3>수입 평가의 질</h3>
+            <p>자세한 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice5" class="subservice active">
+            <h3>자본의 원천 소개</h3>
+            <p>자세한 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice6" class="subservice active">
+            <h3>합병 후 통합</h3>
+            <p>자세한 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice7" class="subservice active">
+            <h3>재무 모델링</h3>
+            <p>자세한 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+          `
+		},
+	},
       'turnaround': {
+		en: {
         title: 'Turnaround & Restructuring',
         sidebar: `
           <ul>
@@ -346,7 +633,39 @@
           </div>
           `
       },
+		ko: {
+        title: '회생 및 구조조정',
+        sidebar: `
+          <ul>
+            <li><a href="#" data-target="subservice1">위기 관리</a></li>
+            <li><a href="#" data-target="subservice2">예산 리뷰</a></li>
+            <li><a href="#" data-target="subservice3">부채 구조 조정</a></li>
+          </ul>`,
+        content: `
+          <h2>회생 및 구조조정</h2>
+          <div id="subservice1" class="subservice active">
+            <h3>위기 관리</h3>
+            <p>자세한 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice2" class="subservice active">
+            <h3>예산 리뷰</h3>
+            <p>자세한 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice3" class="subservice active">
+            <h3>부채 구조 조정</h3>
+            <p>자세한 설명</p>
+            <h4>주요 특징</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+          `
+		},
+	},
       'state-local': {
+		en: {
         title: 'State & Local Incentives & Credits Negotiation',
         sidebar: `
           <ul>
@@ -383,7 +702,46 @@
           </div>
           `
       },
+		ko: {
+        title: '주 및 지방 인센티브 및 크레딧 협상',
+        sidebar: `
+          <ul>
+            <li><a href="#" data-target="subservice1">새로운 투자에 대한 세금 혜택 조사</a></li>
+            <li><a href="#" data-target="subservice2">정부 협상을 통한 공공부문 재정 인센티브 확보</a></li>
+            <li><a href="#" data-target="subservice3">인센티브 신청 및 규정 준수 이행 지원</a></li>
+            <li><a href="#" data-target="subservice4">인력 및 부문별 인센티브 프로그램에 대한 지침</a></li>
+          </ul>`,
+        content: `
+          <h2>주 및 지방 인센티브 및 크레딧 협상</h2>
+          <div id="subservice1" class="subservice active">
+            <h3>새로운 투자에 대한 세금 혜택 조사</h3>
+            <p>새로운 투자에 대한 사용 가능한 세액 공제 및 인센티브 식별</p>
+            <h4>주요 특징</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice2" class="subservice active">
+            <h3>정부 협상을 통한 공공부문 재정 인센티브 확보</h3>
+            <p>보조금, 세금 감면 및 기타 재정적 인센티브를 확보하기 위한 주 및 지방 정부와의 협상</p>
+            <h4>주요 특징</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice3" class="subservice active">
+            <h3>인센티브 신청 및 규정 준수 이행 지원</h3>
+            <p>수여된 인센티브에 대한 신청 및 규정 준수 요구 사항 지원</p>
+            <h4>주요 특징</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice4" class="subservice active">
+            <h3>인력 및 부문별 인센티브 프로그램에 대한 지침</h3>
+            <p>고용 기반 및 산업별 인센티브 프로그램에 대한 자문 </p>
+            <h4>주요 특징</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+          `
+		},
+	},
       'other-advisory': {
+		en: {
         title: 'Other Advisory Services',
         sidebar: `
           <ul>
@@ -420,129 +778,180 @@
             <ul><li>Detail</li></ul>
           </div>
           `
-      }
+      },
+	ko: {
+        title: '기타 자문 서비스',
+        sidebar: `
+          <ul>
+            <li><a href="#" data-target="subservice1">현금 흐름 예측</a></li>
+            <li><a href="#" data-target="subservice2">리소스 솔루션</a></li>
+            <li><a href="#" data-target="subservice3">신흥 시장 및 해외 파트너십</a></li>
+            <li><a href="#" data-target="subservice4">전략적 공급업체 파트너십</a></li>
+            <!-- Add remaining -->
+          </ul>`,
+        content: `
+          <h2>기타 자문 서비스</h2>
+          <div id="subservice1" class="subservice active">
+            <h3>현금 흐름 예측</h3>
+            <p> </p>
+            <h4>주요 특징</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice2" class="subservice active">
+            <h3>리소스 솔루션</h3>
+            <p></p>
+            <h4>주요 특징</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice3" class="subservice active">
+            <h3>신흥 시장 및 해외 파트너십</h3>
+            <p> </p>
+            <h4>주요 특징</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+		  <div id="subservice4" class="subservice active">
+            <h3>전략적 공급업체 파트너십</h3>
+            <p> </p>
+            <h4>주요 특징</h4>
+            <ul><li>Detail</li></ul>
+          </div>
+          `
+}
+}
     };
 
-    // Function to load a service
-    function loadService(serviceKey) {
-      const data = servicesData[serviceKey] || servicesData['tax-planning']; // Default to first
-      document.querySelector('.breadcrumb-tail').textContent = data.title;
-      const dropdown = document.getElementById('subservice-dropdown');
-      dropdown.innerHTML = data.sidebar.replace('<ul>', '').replace('</ul>', '').trim(); // Populate dropdown from sidebar
-      document.getElementById('subservice-sidebar').innerHTML = data.sidebar;
-      document.getElementById('service-detail').innerHTML = data.content;
+    // ==========================
+  // Load a Service by Key + Lang
+  // ==========================
+  function loadService(serviceKey, lang = localStorage.getItem('lang') || 'en') {
+    const service = servicesData[serviceKey]?.[lang] || servicesData['tax-planning'][lang];
 
-      // Show first subservice by default
-      const subservices = document.querySelectorAll('.subservice');
-      subservices.forEach(div => { div.style.display = 'none'; div.classList.remove('active'); });
-      const firstSub = document.getElementById('subservice1');
-      if (firstSub) {
-        firstSub.style.display = 'block';
-        firstSub.classList.add('active');
-      }
-
-      // Re-attach toggling events
-      attachToggleEvents();
+console.log(`Loading service: ${serviceKey}, lang: ${lang}`);
+    if (!servicesData[serviceKey] || !servicesData[serviceKey][lang]) {
+      console.error(`Service ${serviceKey} or language ${lang} not found`);
+      return;
     }
 
-    // Attach subservice toggle events
-    function attachToggleEvents() {
-      const sidebarLinks = document.querySelectorAll('.subservice-sidebar a[data-target]');
-      const breadcrumbLinks = document.querySelectorAll('.breadcrumb a[data-target]');
-      const subservices = document.querySelectorAll('.subservice');
-
-      [...sidebarLinks, ...breadcrumbLinks].forEach(link => {
-        link.addEventListener('click', e => {
-          e.preventDefault();
-          const targetId = link.dataset.target;
-          subservices.forEach(div => { div.style.display = 'none'; div.classList.remove('active'); });
-          const targetDiv = document.getElementById(targetId);
-          if (targetDiv) {
-            targetDiv.style.display = 'block';
-            void targetDiv.offsetWidth; // Reflow for animation
-            targetDiv.classList.add('active');
-          }
-          sidebarLinks.forEach(l => l.classList.remove('active'));
-          if (link.closest('.subservice-sidebar')) link.classList.add('active');
-        });
-      });
+    // Update breadcrumb tail
+    const breadcrumbTail = document.querySelector('.breadcrumb-tail');
+    if (breadcrumbTail) {
+      breadcrumbTail.textContent = servicesData[serviceKey][lang].title;
     }
 
-    // Handle main service switches
-    document.querySelectorAll('.breadcrumb a[data-service]').forEach(link => {
+    // Replace sidebar + content
+    document.getElementById('subservice-sidebar').innerHTML = service.sidebar;
+    document.getElementById('service-detail').innerHTML = service.content;
+
+    // Populate dropdown (if applicable)
+    const dropdown = document.getElementById('subservice-dropdown');
+    if (dropdown) {
+      dropdown.innerHTML = service.sidebar.replace('<ul>', '').replace('</ul>', '').trim();
+    }
+
+    // Show first subservice by default
+    const firstSub = document.querySelector('.subservice');
+    if (firstSub) {
+      firstSub.style.display = 'block';
+      firstSub.classList.add('active');
+    }
+
+    attachToggleEvents();
+  }
+
+  // ==========================
+  // Attach Sidebar + Breadcrumb Events
+  // ==========================
+  function attachToggleEvents() {
+    const sidebarLinks = document.querySelectorAll('.subservice-sidebar a[data-target]');
+    const breadcrumbLinks = document.querySelectorAll('.breadcrumb a[data-target]');
+    const subservices = document.querySelectorAll('.subservice');
+
+    [...sidebarLinks, ...breadcrumbLinks].forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
-        const serviceKey = link.dataset.service;
-        loadService(serviceKey);
-        window.location.hash = link.getAttribute('href').substring(1); // Update hash
+        const targetId = link.dataset.target;
+        subservices.forEach(div => { div.style.display = 'none'; div.classList.remove('active'); });
+        const targetDiv = document.getElementById(targetId);
+        if (targetDiv) {
+          targetDiv.style.display = 'block';
+          void targetDiv.offsetWidth; // Reflow for animation
+          targetDiv.classList.add('active');
+        }
+        sidebarLinks.forEach(l => l.classList.remove('active'));
+        if (link.closest('.subservice-sidebar')) link.classList.add('active');
       });
     });
-
-    // Load service based on URL hash
-// --- Enhanced Hash Loader (supports subservice targeting + sidebar highlight + auto offset scroll) ---
-const hash = window.location.hash.substring(1);
-
-if (hash) {
-  // If hash includes a subservice indicator, e.g. "tax-planning:subservice3"
-  const [serviceKey, subKey] = hash.split(':');
-  loadService(serviceKey || 'tax-planning');
-
-  // Wait a moment for DOM to update before showing subservice
-  if (subKey) {
-    setTimeout(() => {
-      const targetDiv = document.getElementById(subKey);
-      if (targetDiv) {
-        // Hide all subservice sections
-        document.querySelectorAll('.subservice').forEach(div => {
-          div.style.display = 'none';
-          div.classList.remove('active');
-        });
-
-        // Show the chosen one
-        targetDiv.style.display = 'block';
-        targetDiv.classList.add('active');
-
-        // Highlight sidebar item
-        document.querySelectorAll('.subservice-sidebar a').forEach(a => {
-          a.classList.remove('active');
-          if (a.getAttribute('href') === `#${subKey}`) {
-            a.classList.add('active');
-          }
-        });
-
-        // --- Auto-detect header height for smooth scroll offset ---
-        const headerElement = document.querySelector('header, .site-header, #header-placeholder');
-        let headerOffset = 0;
-
-        if (headerElement) {
-          const headerRect = headerElement.getBoundingClientRect();
-          headerOffset = headerRect.height + 20; // Add small buffer
-        }
-
-        // Include breadcrumb height (if exists)
-        const breadcrumb = document.querySelector('.breadcrumb-nav');
-        if (breadcrumb) {
-          const crumbRect = breadcrumb.getBoundingClientRect();
-          headerOffset += crumbRect.height / 2; // slight extra offset
-        }
-
-        // Calculate position and scroll smoothly
-        const elementPosition = targetDiv.getBoundingClientRect().top + window.scrollY;
-        const offsetPosition = elementPosition - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
-    }, 400);
   }
-} else {
-  loadService('tax-planning');
-}
 
+  // ==========================
+  // Breadcrumb service switching
+  // ==========================
+  document.querySelectorAll('.breadcrumb a[data-service]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const serviceKey = link.dataset.service;
+      const currentLang = localStorage.getItem('lang') || 'en'; // ✅ FIXED
+      loadService(serviceKey, currentLang);
+      window.location.hash = link.getAttribute('href').substring(1);
+    });
+  });
 
+  // ==========================
+  // Handle Initial Page Load
+  // ==========================
+  document.addEventListener('DOMContentLoaded', () => {
+    const currentLang = localStorage.getItem('lang') || 'en';
+    const hash = window.location.hash.substring(1);
+    const [serviceKey, subKey] = hash.split(':');
+    const defaultService = serviceKey || 'tax-planning';
 
-  </script>
+    // ✅ Don’t call setLanguage() here (prevents early languageChanged)
+    loadService(defaultService, currentLang);
+
+    // Optional: show subservice if hash includes subKey
+    if (subKey) {
+      setTimeout(() => {
+        const targetDiv = document.getElementById(subKey);
+        if (targetDiv) {
+          document.querySelectorAll('.subservice').forEach(div => {
+            div.style.display = 'none';
+            div.classList.remove('active');
+          });
+          targetDiv.style.display = 'block';
+          targetDiv.classList.add('active');
+        }
+      }, 300);
+    }
+  });
+
+// ===============================================
+// React to global language changes for services.html
+// ===============================================
+document.addEventListener('languageChanged', (e) => {
+  const lang = e.detail || localStorage.getItem('lang') || 'en';
+
+  // Only run this on services.html
+  if (!window.location.pathname.includes("services.html") || typeof loadService !== "function") return;
+
+  // Figure out which service is currently active
+  const currentHash = window.location.hash.replace("#", "");
+  const currentService = currentHash.split(':')[0] || "tax-planning";
+
+  console.log(`🔄 Reloading ${currentService} for language → ${lang}`);
+
+  // Wait for .lang-content updates to complete before refreshing service data
+  setTimeout(() => {
+    loadService(currentService, lang);
+
+    // Also update breadcrumb tail
+    document.querySelectorAll('.breadcrumb-tail').forEach((tail) => {
+      tail.textContent = servicesData[currentService][lang].title;
+    });
+
+    console.log(`✅ Service reloaded for ${lang}`);
+  }, 300);
+});
+
+</script>
 </body>
 </html>
