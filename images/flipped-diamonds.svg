@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="16px" height="20px" viewBox="0 0 16 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>flipped-diamonds</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+    <!-- Repeating pattern of diamond shapes -->
+    <pattern id="diamondPattern" x="0" y="0" width="16" height="20" patternUnits="userSpaceOnUse">
+      <g id="flipped-diamonds" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="flipped-diamonds-shapes" fill="url(#fadeGradient)">
+          <polygon points="8 0 8 20 0 10"/>
+          <polygon points="16 0 16 10 8 0"/>
+          <polygon points="16 10 16 20 8 20"/>
+        </g>
+      </g>
+    </pattern>
+    <!-- Gradient for fading effect -->
+    <linearGradient id="fadeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:0.3"/>
+    </linearGradient>
+  </defs>
+  <!-- Navy background -->
+  <rect x="0" y="0" width="1200" height="120" fill="#003366"/>
+  <!-- Pattern overlay -->
+  <rect x="0" y="0" width="1200" height="120" fill="url(#diamondPattern)"/>
+</svg>
