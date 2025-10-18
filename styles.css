@@ -1433,24 +1433,46 @@ section {
   text-align: center;
   padding: 4rem 1rem 3rem;
   color: #f5f7fa;
-  background-color: #001f3f; /* deep navy */
+  background-color: #001f3f; /* navy blue base */
+  
+  /* Layered backgrounds */
   background-image:
     url("images/flipped-diamonds.svg"),
-    linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.35));
+    linear-gradient(120deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+    linear-gradient(240deg, rgba(255,255,255,0.03) 25%, transparent 25%),
+    linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.35)); /* soft gradient fade */
+  
   background-repeat: repeat;
-  background-size: 40px 40px; /* controls pattern density */
+  background-size: 48px 48px, 200% 200%, 200% 200%, cover;
   background-blend-mode: overlay;
-  animation: subtleDrift 90s linear infinite;
+  
+  animation:
+    subtleDrift 120s linear infinite,
+    shimmerMove 20s ease-in-out infinite alternate;
+  
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Slow drift movement for the pattern */
 @keyframes subtleDrift {
-  0% { background-position: 0 0; }
-  50% { background-position: 20px 20px; }
-  100% { background-position: 0 0; }
+  0% { background-position: 0 0, 0 0, 0 0, center; }
+  50% { background-position: 48px 48px, 50% 50%, 60% 40%, center; }
+  100% { background-position: 0 0, 0 0, 0 0, center; }
 }
 
+/* Shimmer sweep for metallic look */
+@keyframes shimmerMove {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.1);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
 
 
 
