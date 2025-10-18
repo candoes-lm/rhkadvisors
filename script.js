@@ -294,3 +294,19 @@ window.addEventListener('languageChanged', e => {
     }
   }, 50);
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const members = document.querySelectorAll(".member-card");
+  const revealOnScroll = () => {
+    members.forEach((card) => {
+      const rect = card.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        card.classList.add("visible");
+      }
+    });
+  };
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll(); // trigger on load
+});
+
+

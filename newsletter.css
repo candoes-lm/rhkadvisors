@@ -36,7 +36,7 @@ body {
 }
 
 .newsletter-featured {
-  background: url('hero-pattern.svg') center/cover no-repeat;
+  background: url('images/hero-pattern.svg') center/cover no-repeat;
   color: white;
   padding: 4rem 2rem;
   text-align: center;
