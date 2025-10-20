@@ -1429,74 +1429,60 @@ section {
 }
 
 .section-header {
-  position: relative;
+  background: linear-gradient(135deg, #003366 0%, #005599 100%);
+  color: white;
   text-align: center;
-  padding: 4rem 1rem 3rem;
-  color: #f5f7fa;
-  background-color: #001f3f; /* navy blue base */
-  
-  /* Layered backgrounds */
-  background-image:
-    url("images/flipped-diamonds.svg"),
-    linear-gradient(120deg, rgba(255,255,255,0.05) 25%, transparent 25%),
-    linear-gradient(240deg, rgba(255,255,255,0.03) 25%, transparent 25%),
-    linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.35)); /* soft gradient fade */
-  
-  background-repeat: repeat;
-  background-size: 48px 48px, 200% 200%, 200% 200%, cover;
-  background-blend-mode: overlay;
-  
-  animation:
-    subtleDrift 120s linear infinite,
-    shimmerMove 20s ease-in-out infinite alternate;
-  
-  overflow: hidden;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Slow drift movement for the pattern */
-@keyframes subtleDrift {
-  0% { background-position: 0 0, 0 0, 0 0, center; }
-  50% { background-position: 48px 48px, 50% 50%, 60% 40%, center; }
-  100% { background-position: 0 0, 0 0, 0 0, center; }
-}
-
-/* Shimmer sweep for metallic look */
-@keyframes shimmerMove {
-  0% {
-    filter: brightness(1);
-  }
-  50% {
-    filter: brightness(1.1);
-  }
-  100% {
-    filter: brightness(1);
-  }
-}
-
-
-
-.section-header h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #003366;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  padding: 5rem 1rem;
   position: relative;
-  z-index: 2;
+  overflow: hidden;
 }
 
-.section-header::after {
+/* Diamond pattern overlay with soft shimmer */
+.section-header::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.6); /* Subtle white veil for readability */
-  z-index: 1;
+  background-image: 
+    url("data:image/svg+xml;utf8,\
+    <svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 20 20'>\
+      <defs>\
+        <linearGradient id='fadeGradient' x1='0' y1='0' x2='1' y2='1'>\
+          <stop offset='0%' stop-color='%23ffffff' stop-opacity='0.06'/>\
+          <stop offset='100%' stop-color='%23ffffff' stop-opacity='0.02'/>\
+        </linearGradient>\
+      </defs>\
+      <g fill='url(%23fadeGradient)'>\
+        <polygon points='8 0 8 20 0 10'/>\
+        <polygon points='16 0 16 10 8 0'/>\
+        <polygon points='16 10 16 20 8 20'/>\
+      </g>\
+    </svg>");
+  background-repeat: repeat;
+  background-size: 40px 40px;
+  opacity: 0.15; /* reduced for subtlety */
+  z-index: 0;
+  animation: shimmerMove 20s linear infinite;
+  filter: brightness(1.1);
 }
 
+/* Gentle shimmer motion */
+@keyframes shimmerMove {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 150px 150px;
+  }
+}
+
+/* Heading styling */
 .section-header h2 {
   position: relative;
-  z-index: 2;
+  z-index: 1;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.25);
 }
 
 /* ===============================
