@@ -10,38 +10,64 @@
 <body>
 <div id="header-placeholder"></div>
   <div class="section-header">
-    <h2>RHK Advisors Newsletter</h2>
-    <p class="subtitle">Insights, updates, and strategies—delivered monthly.</p>
+    <h2 class="lang-content lang-en active">RHK Advisors Newsletter</h2>
+    <h2 class="lang-content lang-ko">RHK Advisors 뉴스레터</h2>
+    <p class="subtitle lang-content lang-en active">Insights, updates, and strategies—delivered monthly.</p>
+    <p class="subtitle lang-content lang-ko">통찰력, 업데이트 및 전략을 매월 제공합니다.</p>
   </div>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 <div class="newsletter-container">
-  <section class="newsletter-featured">
+  <section class="newsletter-featured lang-content lang-en active">
     <div class="badge">⭐ Featured Issue</div>
     <div class="featured-card">
       <h3>Q3 Insights: Navigating Tax Reform</h3>
       <p class="date">September 2025</p>
       <p class="teaser">Explore how recent policy shifts impact compliance strategies for mid-sized firms.</p>
-      <a href="newsletter-sep2025.html" class="read-more">Read More →</a>
+      <a href="newsletter-202509.html" class="read-more">Read More →</a>
+    </div>
+  </section>
+  
+  <section class="newsletter-featured lang-content lang-ko">
+    <div class="badge">⭐ 주요 이슈</div>
+    <div class="featured-card">
+      <h3>3분기 인사이트: 세금 개혁 탐색</h3>
+      <p class="date">2025년 9월</p>
+      <p class="teaser">최근 정책 변화가 중견기업의 규정 준수 전략에 어떤 영향을 미치는지 살펴보세요.</p>
+      <a href="newsletter-202509.html" class="read-more">더 읽어보기 →</a>
     </div>
   </section>
 
   <section class="newsletter-archive">
-    <h2>Archive</h2>
-	<hr />
+    <h2 class="lang-content lang-en active">Archive</h2>
+    <h2 class="lang-content lang-ko">Archive</h2>
     <div class="newsletter-grid">
-      <article class="newsletter-card">
+      <article class="newsletter-card lang-content lang-en active">
         <h3>August 2025</h3>
         <p class="headline">Internal Audit Trends</p>
         <p class="teaser">Key takeaways from recent audit frameworks and compliance updates.</p>
-        <a href="newsletter-aug2025.html">Read More →</a>
+        <a href="newsletter-202509.html">Read More →</a>
+      </article>
+      
+      <article class="newsletter-card lang-content lang-ko">
+        <h3>2025년 8월</h3>
+        <p class="headline">내부 감사 동향</p>
+        <p class="teaser">최근 감사 프레임워크와 규정 준수 업데이트의 주요 내용입니다.</p>
+        <a href="newsletter-202509.html">더 읽어보기 →</a>
       </article>
 
-      <article class="newsletter-card">
+      <article class="newsletter-card lang-content lang-en active">
         <h3>July 2025</h3>
         <p class="headline">Tech & Risk Advisory</p>
         <p class="teaser">How digital transformation is reshaping risk management.</p>
-        <a href="newsletter-jul2025.html">Read More →</a>
+        <a href="newsletter-202509.html">Read More →</a>
+      </article>
+      
+      <article class="newsletter-card lang-content lang-ko">
+        <h3>2025년 7월</h3>
+        <p class="headline">기술 및 위험 자문</p>
+        <p class="teaser">디지털 혁신이 위험 관리를 어떻게 변화시키고 있는가.</p>
+        <a href="newsletter-202509.html">더 읽어보기 →</a>
       </article>
 
       <!-- Add more cards as needed -->
@@ -49,21 +75,33 @@
   </section>
   </div>
   
- <section class="newsletter-signup">
-  <h2>Subscribe to Our Newsletter</h2>
-<form id="signup-form" action="https://formspree.io/f/manpdqaz" method="POST" class="signup-form">
-  <label for="email">Subscribe for updates:</label>
-  <input type="email" name="email" id="email" placeholder="Enter your email" required />
+  <section class="newsletter-signup lang-content lang-en active">
+    <h2>Subscribe to Our Newsletter</h2>
+    <form id="signup-form" action="https://formspree.io/f/manpdqaz" method="POST" class="signup-form">
+      <label for="email">Subscribe for updates:</label>
+      <input type="email" name="email" id="email" placeholder="Enter your email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+    
+    <!-- Thank You Popup -->
+    <div id="thank-you-box" style="display:none;">
+      <p>🎉 Thank you for subscribing!</p>
+    </div>
+  </section>
   
-  
-  <button type="submit">Subscribe</button>
-</form>
-<!-- Thank You Popup -->
-<div id="thank-you-box" style="display:none;">
-  <p>🎉 Thank you for subscribing!</p>
-</div>
-
-</section>
+  <section class="newsletter-signup lang-content lang-ko">
+    <h2>뉴스레터 구독하기</h2>
+    <form id="signup-form" action="https://formspree.io/f/manpdqaz" method="POST" class="signup-form">
+      <label for="email">업데이트를 구독하세요:</label>
+      <input type="email" name="email" id="email" placeholder="이메일을 입력하세요" required />
+      <button type="submit">구독하다</button>
+    </form>
+    
+    <!-- Thank You Popup -->
+    <div id="thank-you-box" style="display:none;">
+      <p>🎉 구독해주셔서 감사합니다!</p>
+    </div>
+  </section>
 
 <div id="footer-placeholder"></div>
 </body>

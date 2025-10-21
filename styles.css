@@ -28,24 +28,74 @@ header {
   transform: translateY(0);
 }
 
-
-/* Hero Section */
 #hero {
-  background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)),
-              url('images/pexels-scottwebb-27406_compressed.jpg') center/cover no-repeat; 
+  position: relative;
+  background: linear-gradient(to bottom, rgba(0, 51, 102, 0.25), rgba(0, 51, 102, 0.45)),
+    url('images/pexels-scottwebb-27406_compressed.jpg') center/cover no-repeat;
   color: white;
   text-align: center;
-  padding: 5rem 1rem 4rem;
+  padding: 6rem 1rem 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow: hidden;
 }
 
+/* 💡 Light transparent overlay to ensure text readability */
+#hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 51, 102, 0.35) 0%,
+    rgba(0, 51, 102, 0.55) 100%
+  );
+  z-index: 0;
+}
+
+/* ✨ Gentle diagonal shimmer */
+#hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 45%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.25) 55%,
+    transparent 100%
+  );
+  background-size: 200% 200%;
+  animation: diagonalSweep 20s ease-in-out infinite;
+  opacity: 0.4;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Optional: light zoom effect for liveliness */
+@keyframes heroZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+/* Slow shimmer movement */
+@keyframes diagonalSweep {
+  0% { background-position: 200% 200%; }
+  50% { background-position: 0% 0%; }
+  100% { background-position: 200% 200%; }
+}
+
+/* Content */
 .hero-content {
+  position: relative;
+  z-index: 2;
   max-width: 800px;
   margin: 0 auto;
-  animation: fadeInUp 1s ease forwards;
+  animation: fadeInUp 1.2s ease forwards;
 }
 
 .hero-content h1 {
@@ -53,13 +103,16 @@ header {
   font-weight: 700;
   margin-bottom: 1rem;
   line-height: 1.3;
+  color: #ffffff;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content p {
   font-size: 1.2rem;
   font-weight: 300;
   margin-bottom: 2rem;
-  color: #f0f0f0;
+  color: #f4f8ff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
 .hero-btn {
@@ -70,15 +123,17 @@ header {
   border-radius: 6px;
   font-weight: 600;
   text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
 .hero-btn:hover {
   background-color: #005599;
   color: white;
+  transform: translateY(-2px);
 }
 
-/* Subtle fade animation */
+
+/* Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -90,6 +145,18 @@ header {
   }
 }
 
+@keyframes heroZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+/* ✨ Diagonal shimmer animation (slower + elegant) */
+@keyframes diagonalSweep {
+  0% { background-position: 200% 200%; }
+  50% { background-position: 0% 0%; }
+  100% { background-position: 200% 200%; }
+}
+
 @media (max-width: 768px) {
   .hero-content h1 {
     font-size: 2rem;
@@ -98,7 +165,6 @@ header {
     font-size: 1rem;
   }
 }
-
 
 
 .logo-link {
@@ -1544,4 +1610,420 @@ section {
     width: 20px;
     height: 20px;
   }
+}
+
+
+/* Newsletter Issue Section */
+    /* ===== Section Header ===== */
+    .newsletter-section-header {
+      position: relative;
+      background: linear-gradient(135deg, #003366 0%, #005599 100%);
+      color: white;
+      text-align: center;
+      padding: 6rem 1rem 5rem;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .newsletter-section-header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      opacity: 0.25;
+      animation: shimmer 8s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes shimmer {
+      from { background-position: 0 0; }
+      to { background-position: 100px 100px; }
+    }
+
+    /* Subtle animated watermark */
+    .newsletter-section-header::before {
+      content: "RHK Advisors";
+      position: absolute;
+      inset: 0;
+      font-size: 7rem;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.05);
+      letter-spacing: 0.2rem;
+      white-space: nowrap;
+      transform: rotate(-10deg);
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      animation: watermarkFloat 10s ease-in-out infinite alternate;
+      z-index: 0;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    @keyframes watermarkFloat {
+      0% { transform: translate(-50%, -50%) rotate(-10deg) scale(1); opacity: 0.05; }
+      100% { transform: translate(-48%, -52%) rotate(-10deg) scale(1.03); opacity: 0.08; }
+    }
+
+    .newsletter-section-header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      z-index: 2;
+      position: relative;
+    }
+
+
+/* Newsletter article styling */
+.newsletter-article {
+  background: #f9fbfd;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Smooth fade-in effect for newsletter page */
+.newsletter-article {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Back link styling */
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  color: #ffffff;
+  background-color: #003366;
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-link:hover {
+  background-color: #005599;
+  transform: translateY(-2px);
+}
+
+.newsletter-article-container {
+  background: white;
+  max-width: 800px;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  z-index: 1;
+  display: block;
+}
+
+.article-title {
+  color: #003366;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.article-meta {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.article-hero img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.article-body p {
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.article-body h3 {
+  color: #003366;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.article-body ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  color: #333;
+}
+
+blockquote {
+  border-left: 4px solid #005599;
+  background: rgba(0, 51, 102, 0.05);
+  padding: 1rem 1.5rem;
+  font-style: italic;
+  margin: 2rem 0;
+  color: #003366;
+  border-radius: 6px;
+}
+
+.newsletter-nav {
+  display: flex;
+  justify-content: space-between;
+  max-width: 800px;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.newsletter-nav a {
+  color: #005599;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.newsletter-nav a:hover {
+  color: #003366;
+}
+
+/* Reusable container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+/* General text styles */
+.about-overview p,
+.about-mvvs p {
+  line-height: 1.8;
+  color: #333;
+  max-width: 850px;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+/* ===== Mission / Vision / Values ===== */
+.about-mvvs {
+  background-color: #f7f9fb;
+  padding: 4rem 1.5rem;
+}
+
+.about-mvvs .mvv-item {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 51, 102, 0.08);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-mvvs .mvv-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 51, 102, 0.12);
+}
+
+.about-mvvs h3 {
+  color: #003366;
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.about-mvvs ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto;
+  color: #333;
+}
+
+/* ===== Our Journey (Timeline) ===== */
+.about-history {
+  background: white;
+  padding: 5rem 1rem;
+  position: relative;
+}
+
+.about-history .milestones {
+  position: relative;
+  margin-top: 3rem;
+  border-left: 3px solid #005599;
+  padding-left: 2rem;
+}
+
+.milestone {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+}
+
+.milestone::before {
+  content: "";
+  position: absolute;
+  left: -1.3rem;
+  top: 0.5rem;
+  width: 14px;
+  height: 14px;
+  background-color: #005599;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.milestone .year {
+  font-weight: 700;
+  color: #003366;
+  font-size: 1.1rem;
+}
+
+.milestone .desc {
+  margin-top: 0.4rem;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+/* ===== Leadership / Team ===== */
+.about-team {
+  background: #f9fbfd;
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.team-member {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 51, 102, 0.08);
+  padding: 2rem 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 51, 102, 0.15);
+}
+
+.team-member img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid #00559922;
+}
+
+.team-member h3 {
+  color: #003366;
+  margin-bottom: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.team-member .role {
+  color: #777;
+  font-size: 0.95rem;
+}
+
+/* ===== Why Choose Us ===== */
+.about-differentiators {
+  background: linear-gradient(135deg, #003366, #005599);
+  color: white;
+  padding: 5rem 1rem;
+}
+
+.differ-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.diff-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 2rem;
+  backdrop-filter: blur(4px);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.diff-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+.diff-item h3 {
+  color: #ffffff;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.diff-item p {
+  color: #e0e6ee;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 768px) {
+  .section-header h1 {
+    font-size: 2rem;
+  }
+
+  .about-overview p {
+    font-size: 1rem;
+  }
+
+  .about-mvvs .mvv-item,
+  .diff-item {
+    padding: 1.5rem;
+  }
+
+  .team-member {
+    padding: 1.5rem;
+  }
+}
+
+/* Image Divider Section */
+.about-visual {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 3rem 0;
+}
+
+.about-visual img {
+  width: 100%;
+  height: auto;
+  max-height: 300px; /* adjust to control vertical space */
+  object-fit: cover; /* ensures the image fills the space nicely */
+  display: block;
+  filter: brightness(1.05) contrast(1.05); /* make image stand out slightly */
+  transition: transform 8s ease, filter 1s ease;
+}
+
+/* Optional subtle motion for a dynamic feel */
+.about-visual:hover img {
+  transform: scale(1.03);
+  filter: brightness(0.9) contrast(1.1);
+}
+
+/* Optional overlay to unify the color tone */
+.about-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
