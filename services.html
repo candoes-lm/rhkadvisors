@@ -421,8 +421,8 @@
           `
       },
 		ko: {
-					title: '경영 및 기술 컨설팅',
-        sidebar: `
+          title: '경영 및 기술 컨설팅',
+          sidebar: `
           <ul>
             <li><a href="#" data-target="subservice1">CFO 아웃소싱</a></li>
             <li><a href="#" data-target="subservice2">현금 흐름 및 재무 모델링</a></li>
@@ -910,21 +910,24 @@ console.log(`Loading service: ${serviceKey}, lang: ${lang}`);
     // ✅ Don’t call setLanguage() here (prevents early languageChanged)
     loadService(defaultService, currentLang);
 
-    // Optional: show subservice if hash includes subKey
+    // Show selected subservice if hash includes one
+  const activateSub = () => {
     if (subKey) {
-      setTimeout(() => {
-        const targetDiv = document.getElementById(subKey);
-        if (targetDiv) {
-          document.querySelectorAll('.subservice').forEach(div => {
-            div.style.display = 'none';
-            div.classList.remove('active');
-          });
-          targetDiv.style.display = 'block';
-          targetDiv.classList.add('active');
-        }
-      }, 300);
+      const targetDiv = document.getElementById(subKey);
+      if (targetDiv) {
+        document.querySelectorAll('.subservice').forEach(div => {
+          div.style.display = 'none';
+          div.classList.remove('active');
+        });
+        targetDiv.style.display = 'block';
+        targetDiv.classList.add('active');
+      }
     }
-  });
+  };
+
+  // Run after content is injected
+  setTimeout(activateSub, 200);
+});
 
 // ===============================================
 // React to global language changes for services.html
@@ -951,7 +954,7 @@ document.addEventListener('languageChanged', (e) => {
     });
 
     console.log(`✅ Service reloaded for ${lang}`);
-  }, 300);
+  }, 100);
 });
 
 </script>
