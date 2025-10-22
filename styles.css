@@ -434,6 +434,12 @@ nav div li:hover > .submenu {
   }
 }
 
+#subservice-dropdown a.active {
+  background-color: rgba(0, 85, 153, 0.1);
+  color: #003366;
+  font-weight: 600;
+}
+
 /* The dropdown menu itself */
 .language-menu {
   position: absolute !important;
@@ -1365,10 +1371,12 @@ section {
 }
 
 .subservice-sidebar a.active {
-  background-color: #e6f0ff;
-  color: #0055aa;
+  background-color: rgba(0, 85, 153, 0.1);
+  color: #003366;
   font-weight: 600;
+  border-left: 3px solid #005599;
 }
+
 
 
 .service-detail {

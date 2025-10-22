@@ -861,29 +861,51 @@ console.log(`Loading service: ${serviceKey}, lang: ${lang}`);
   }
 
   // ==========================
-  // Attach Sidebar + Breadcrumb Events
-  // ==========================
-  function attachToggleEvents() {
-    const sidebarLinks = document.querySelectorAll('.subservice-sidebar a[data-target]');
-    const breadcrumbLinks = document.querySelectorAll('.breadcrumb a[data-target]');
-    const subservices = document.querySelectorAll('.subservice');
+// Attach Sidebar + Breadcrumb Events (with highlight sync)
+// ==========================
+function attachToggleEvents() {
+  const sidebarLinks = document.querySelectorAll('.subservice-sidebar a[data-target]');
+  const breadcrumbLinks = document.querySelectorAll('#subservice-dropdown a[data-target]');
+  const subservices = document.querySelectorAll('.subservice');
 
-    [...sidebarLinks, ...breadcrumbLinks].forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const targetId = link.dataset.target;
-        subservices.forEach(div => { div.style.display = 'none'; div.classList.remove('active'); });
-        const targetDiv = document.getElementById(targetId);
-        if (targetDiv) {
-          targetDiv.style.display = 'block';
-          void targetDiv.offsetWidth; // Reflow for animation
-          targetDiv.classList.add('active');
-        }
-        sidebarLinks.forEach(l => l.classList.remove('active'));
-        if (link.closest('.subservice-sidebar')) link.classList.add('active');
+  const allLinks = [...sidebarLinks, ...breadcrumbLinks];
+
+  allLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const targetId = link.dataset.target;
+
+      // Hide all subservice content
+      subservices.forEach(div => {
+        div.style.display = 'none';
+        div.classList.remove('active');
       });
+
+      // Show the clicked subservice
+      const targetDiv = document.getElementById(targetId);
+      if (targetDiv) {
+        targetDiv.style.display = 'block';
+        void targetDiv.offsetWidth; // Reflow for smooth animation
+        targetDiv.classList.add('active');
+      }
+
+      // Clear all highlights
+      allLinks.forEach(l => l.classList.remove('active'));
+
+      // Highlight matching links in BOTH places
+      allLinks.forEach(l => {
+        if (l.dataset.target === targetId) {
+          l.classList.add('active');
+        }
+      });
+
+      // Update the URL hash
+      const currentService = window.location.hash.split(':')[0].replace('#', '') || 'tax-planning';
+      window.location.hash = `${currentService}:${targetId}`;
     });
-  }
+  });
+}
+
 
   // ==========================
   // Breadcrumb service switching
@@ -898,36 +920,51 @@ console.log(`Loading service: ${serviceKey}, lang: ${lang}`);
     });
   });
 
-  // ==========================
-  // Handle Initial Page Load
-  // ==========================
-  document.addEventListener('DOMContentLoaded', () => {
-    const currentLang = localStorage.getItem('lang') || 'en';
-    const hash = window.location.hash.substring(1);
-    const [serviceKey, subKey] = hash.split(':');
-    const defaultService = serviceKey || 'tax-planning';
+// ==========================
+// Handle Initial Page Load + Subservice Highlight
+// ==========================
+document.addEventListener('DOMContentLoaded', () => {
+  const currentLang = localStorage.getItem('lang') || 'en';
+  const hash = window.location.hash.substring(1);
+  const [serviceKey, subKey] = hash.split(':');
+  const defaultService = serviceKey || 'tax-planning';
 
-    // ✅ Don’t call setLanguage() here (prevents early languageChanged)
-    loadService(defaultService, currentLang);
+  // 1️⃣ Load the selected service (or default)
+  loadService(defaultService, currentLang);
 
-    // Show selected subservice if hash includes one
-  const activateSub = () => {
-    if (subKey) {
-      const targetDiv = document.getElementById(subKey);
-      if (targetDiv) {
-        document.querySelectorAll('.subservice').forEach(div => {
-          div.style.display = 'none';
-          div.classList.remove('active');
-        });
-        targetDiv.style.display = 'block';
-        targetDiv.classList.add('active');
-      }
-    }
-  };
+  // 2️⃣ After content loads, show the right subservice + highlight its links
+const activateSubservice = () => {
+  if (!subKey) return;
 
-  // Run after content is injected
-  setTimeout(activateSub, 200);
+  const targetDiv = document.getElementById(subKey);
+  const sidebarLinks = document.querySelectorAll('.subservice-sidebar a[data-target]');
+  const breadcrumbLinks = document.querySelectorAll('#subservice-dropdown a[data-target]');
+  const allLinks = [...sidebarLinks, ...breadcrumbLinks];
+
+  if (targetDiv) {
+    // Hide all subservices
+    document.querySelectorAll('.subservice').forEach(div => {
+      div.style.display = 'none';
+      div.classList.remove('active');
+    });
+
+    // Show selected subservice
+    targetDiv.style.display = 'block';
+    targetDiv.classList.add('active');
+
+    // Highlight in both sidebar & dropdown
+    allLinks.forEach(link => {
+      const isMatch = link.dataset.target === subKey;
+      link.classList.toggle('active', isMatch);
+    });
+  }
+};
+
+
+  // 3️⃣ Delay a bit to ensure HTML content is ready before running
+  setTimeout(activateSubservice, 300);
 });
+
 
 // ===============================================
 // React to global language changes for services.html
